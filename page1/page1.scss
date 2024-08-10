@@ -63,6 +63,7 @@
         gap: 1vw;
         color: var(--secondary-color-text);
         height: 5vh;
+        font-size: 16px;
       }
     }
   }
@@ -103,7 +104,7 @@
           padding: 1%;
 
           .search-input {
-            width: 10vw;
+            width: 20vw;
             border-style: hidden;
             background-color: var(--secondary-color);
           }
