@@ -220,11 +220,11 @@ body {
     @media (max-width: 376px) {
       .header {
         width: 375px;
-
+        height: 15vh;
         margin: 5%;
 
         grid-template-columns: 1fr 2fr 1fr;
-        grid-template-rows: 1fr 2fr 1fr;
+        grid-template-rows: 1fr 1fr;
         align-items: center;
         border-bottom: none;
         .menu-mobile {
@@ -237,10 +237,25 @@ body {
           grid-row: 1;
         }
         .search-container {
-        width: 300px;
+          width: 300px;
+
           grid-column-start: 1;
           grid-column-end: 4;
           grid-row: 3;
+          align-items: start;
+          justify-content: start;
+          overflow: visible;
+          padding: 1%;
+          
+          .search {
+            padding-left: 2%;
+          padding-top: 1.2%;
+          }
+          .search-input {
+            width: 200px;
+            border-style: hidden;
+            background-color: var(--secondary-color);
+          }
         }
         .functions {
           grid-column: 3;
