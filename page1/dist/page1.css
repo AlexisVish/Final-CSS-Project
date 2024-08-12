@@ -234,13 +234,14 @@ body {
   }
   .page1 .main .header .search-container {
     width: 300px;
+    height: auto;
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row: 3;
     align-items: start;
     justify-content: start;
     overflow: visible;
-    padding: 1%;
+    padding: 2%;
   }
   .page1 .main .header .search-container .search {
     padding-left: 2%;
