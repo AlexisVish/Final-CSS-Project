@@ -117,11 +117,11 @@ body {
   }
 
   .main {
-    width: 88vw;
+ 
     height: 100vh;
     display: flex;
     flex-direction: column;
-    position: relative;
+    // position: relative;
 
     .header {
       align-items: center;
@@ -129,6 +129,7 @@ body {
       height: 10%;
       display: grid;
       grid-template-columns: 1fr 1fr 2fr;
+      grid-template-rows: 1fr;
       border-bottom-style: solid;
       border-bottom-width: 1px;
       border-bottom-color: #e6eff5;
@@ -215,12 +216,10 @@ body {
       .header {
         margin-left: 5vw;
         margin-right: 5vw;
-        grid-template-columns: 1fr 3fr 1fr;
-        grid-template-rows: 10vh 10vh;
+        grid-template-columns: 20% 60% 20%
+        
         align-items: center;
-        border-bottom-style: solid;
-        border-bottom-width: 1px;
-        border-bottom-color: #e6eff5;
+      border-bottom: none;
         .menu-mobile {
             grid-column: 1;
             display: flex;
@@ -235,7 +234,8 @@ body {
             display: none;
           }
           .image{
-            align-items: center;
+            align-items: right;
+            justify-content: center;
             grid-column: 3;
             grid-row: 1;
           }
@@ -260,6 +260,10 @@ body {
       width: 100%;
       height: 100%;
       background-color: rgb(237, 238, 246);
+    }
+    @media (max-width:376px) {
+       .page{ background-color: white;
+       }
     }
   }
 }
