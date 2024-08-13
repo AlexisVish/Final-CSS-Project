@@ -80,6 +80,15 @@ body {
   height: 90%;
   padding-left: -2%;
 }
+.page2 .side .menu .selected {
+  color: var(--accent-color);
+}
+.page2 .side .menu .selected .icon {
+  filter: invert(105%) sepia(910%) saturate(1000%) hue-rotate(560deg);
+}
+.page2 .side .menu .selected .rectangle {
+  display: block;
+}
 .page2 .side .menu__item {
   display: flex;
   flex-direction: row;
