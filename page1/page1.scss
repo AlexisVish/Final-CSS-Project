@@ -432,11 +432,12 @@ body {
           display: flex;
           flex-direction: column;
           padding-left: 5%;
-          gap: 2vw;
+          
           &__investments {
-            width: 90%;
+            width: 75vw;
             height: 15vh;
-            margin-right: 15vw;
+            margin-right: 25vw;
+            padding-top: 5%;
             .icon {
               width: 90%;
             }
