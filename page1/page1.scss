@@ -396,7 +396,13 @@ body {
           }
         }
       }
-      @media (max-width: 376px) {
+    }
+    @media (max-width: 376px) {
+      .page {
+        padding: 2vw;
+        display: flex;
+        flex-direction: column;
+        gap: 5vw;
         .total {
           padding-top: 0%;
           margin-top: 0;
@@ -405,17 +411,15 @@ body {
           padding-left: 5%;
           gap: 2vw;
           &__item {
-            width: 80vw;
+            width: 70vw;
             height: 25vh;
-            margin-right: 25vw;
+            margin-right: 35vw;
             .icon {
               width: 15%;
               padding-left: 5%;
             }
           }
         }
-      }
-      @media (max-width: 376px) {
         .graphs {
           position: relative;
           display: flex;
@@ -431,15 +435,6 @@ body {
             }
           }
         }
-      }
-    }
-    @media (max-width: 376px) {
-      .page {
-        margin: 1px;
-        padding: 0%;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
       }
     }
   }

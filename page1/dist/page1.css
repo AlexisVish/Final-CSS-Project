@@ -382,6 +382,12 @@ body {
   width: 150%;
 }
 @media (max-width: 376px) {
+  .page1 .main .page {
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+    gap: 5vw;
+  }
   .page1 .main .page .total {
     padding-top: 0%;
     margin-top: 0;
@@ -391,16 +397,14 @@ body {
     gap: 2vw;
   }
   .page1 .main .page .total__item {
-    width: 80vw;
+    width: 70vw;
     height: 25vh;
-    margin-right: 25vw;
+    margin-right: 35vw;
   }
   .page1 .main .page .total__item .icon {
     width: 15%;
     padding-left: 5%;
   }
-}
-@media (max-width: 376px) {
   .page1 .main .page .graphs {
     position: relative;
     display: flex;
@@ -415,14 +419,5 @@ body {
   }
   .page1 .main .page .graphs__investments .icon {
     width: 90%;
-  }
-}
-@media (max-width: 376px) {
-  .page1 .main .page {
-    margin: 1px;
-    padding: 0%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
   }
 }
