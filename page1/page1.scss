@@ -36,16 +36,16 @@ body {
     display: flex;
     flex-direction: column;
     padding-left: 2%;
-padding-right: 2%;
+    padding-right: 2%;
     border-right: solid;
     border-color: #e6eff5;
     border-width: 1px;
     .logo {
-      width: 100%;
+      width: fit-content;
       height: 10%;
       display: flex;
       flex-direction: row;
-      gap: 5px;
+      gap: 0.51vw;
       align-items: center;
 
       .title {
@@ -54,9 +54,12 @@ padding-right: 2%;
         display: flex;
         text-align: center;
         justify-self: center;
+        font-size: 0.9rem;
       }
+
       border-right: #b1b1b1;
     }
+
     .logo:hover {
       cursor: pointer;
       animation: pulsate 2s infinite;
@@ -115,6 +118,14 @@ padding-right: 2%;
       display: none;
     }
   }
+  @media (min-width: 600px) and (max-width: 1600px) {
+    .side {
+      .menu {
+        width: fit-content;
+        overflow: inherit;
+      }
+    }
+  }
 
   .main {
     height: 100vh;
@@ -134,6 +145,7 @@ padding-right: 2%;
       border-bottom-width: 1px;
       border-bottom-color: #e6eff5;
       gap: 1vw;
+
       .menu-mobile {
         display: none;
       }
@@ -172,10 +184,10 @@ padding-right: 2%;
         background-color: var(--secondary-color);
         justify-content: start;
         align-items: center;
-       
-.search{
-  padding-left: 2%;
-}
+
+        .search {
+          padding-left: 2%;
+        }
         .search-input {
           width: 20vw;
           border-style: hidden;
@@ -195,7 +207,7 @@ padding-right: 2%;
         flex-direction: row;
         align-items: center;
         grid-row: 2;
-      gap: 1vw;
+        gap: 1vw;
 
         .icon {
           display: flex;
@@ -221,26 +233,29 @@ padding-right: 2%;
     }
     @media (max-width: 376px) {
       .header {
-        width: 375px;
+        width: 100vw;
         height: 15vh;
-        margin: 5%;
-
+        padding: 1%;
         grid-template-columns: 1fr 2fr 1fr;
         grid-template-rows: 1fr 1fr;
         align-items: center;
         border-bottom: none;
+
         .menu-mobile {
           grid-area: 1 1;
           display: flex;
           align-items: center;
+          justify-content: center;
+          margin-left: 2vw;
         }
         .title {
           grid-column: 2;
           grid-row: 1;
+          align-items: center;
         }
         .search-container {
           width: 300px;
-height: auto;
+          height: auto;
           grid-column-start: 1;
           grid-column-end: 4;
           grid-row: 3;
@@ -248,10 +263,10 @@ height: auto;
           justify-content: start;
           overflow: visible;
           padding: 2%;
-          
+
           .search {
-            padding-left: 2%;
-          padding-top: 1.2%;
+            padding-left: 2vw;
+            padding-top: 1.2%;
           }
           .search-input {
             width: 200px;
@@ -267,8 +282,20 @@ height: auto;
           }
           .image {
             align-items: center;
-            justify-content: right;
+            justify-content: start;
           }
+        }
+      }
+    }
+    @media (min-width: 600px) and (max-width:1400px) {
+      .header {
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr 1fr;
+        overflow: inherit;
+        padding-right: 5vw;
+        .search-container {
+          grid-column: 2;
+          grid-row: 2;
         }
       }
     }
