@@ -272,6 +272,7 @@ body {
     display: none;
   }
   .page1 .main .header .functions .image {
+    margin-right: 80vw;
     align-items: center;
     justify-content: start;
   }
