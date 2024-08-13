@@ -8,6 +8,7 @@ body {
   --secondary-color-text: #b1b1b1;
   --secondary-color: #f5f7fa;
   --accent-color: #2d60ff;
+  --body-color-text: #718ebf;
 }
 .page1 {
   display: flex;
@@ -283,12 +284,11 @@ body {
           .image {
             align-items: center;
             justify-content: start;
-         
           }
         }
       }
     }
-    @media (min-width: 600px) and (max-width:1400px) {
+    @media (min-width: 600px) and (max-width: 1400px) {
       .header {
         display: grid;
         grid-template-columns: 2fr 2fr 1fr 1fr;
@@ -301,13 +301,83 @@ body {
       }
     }
     .page {
-      width: 100%;
+      width: 100vw;
       height: 100%;
       background-color: rgb(237, 238, 246);
+      .total {
+        display: flex;
+        flex-direction: row;
+        gap: 5vw;
+        width: 100%;
+        align-items: center;
+
+        height: 5vh;
+        padding: 3%;
+        &__item {
+          padding: 1%;
+          display: flex;
+          flex-direction: row;
+          width: 20vw;
+          height: 7vh;
+          background-color: var(--primary-color);
+          border-radius: 20px;
+          align-items: center;
+          justify-content: start;
+          gap: 1vw;
+          .icon {
+            width: 4vw;
+            height: auto;
+          }
+          &__title {
+            display: flex;
+            flex-direction: column;
+            text-align: start;
+            justify-content: center;
+            padding: 5%;
+            gap: 0.5vw;
+            p {
+              color: var(--body-color-text);
+              margin-top: 0;
+              margin-bottom: 0;
+              font-size: 0.7rem;
+            }
+            h2 {
+              color: black;
+              font-size: 0.7rem;
+              margin-top: 0;
+              margin-bottom: 0;
+              font-weight: 600;
+            }
+          }
+        }
+      .total__item:hover{
+        cursor: pointer;
+      }}
+      
+      @media (max-width: 376px) {
+        .total {
+          display: flex;
+          flex-direction: column;
+          padding-left: 5%;
+          gap: 2vw;
+          &__item {
+            width: 90%;
+            height: 15vh;
+            margin-right: 15vw;
+            .icon {
+              width: 15%;
+              padding-left: 5%;
+            }
+          }
+        }
+      }
     }
     @media (max-width: 376px) {
       .page {
-        background-color: white;
+        margin: 1px;
+        padding: 3%;
+        display: flex;
+        justify-content: center;
       }
     }
   }
