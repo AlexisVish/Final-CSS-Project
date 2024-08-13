@@ -420,6 +420,15 @@ body {
   font-size: 0.7rem;
   color: var(--secondary-color-text);
 }
+.page1 .main .page .stocks__personal__item .column1:hover {
+  cursor: pointer;
+}
+.page1 .main .page .stocks__personal__item .column2:hover {
+  cursor: pointer;
+}
+.page1 .main .page .stocks__personal__item .icon:hover {
+  cursor: pointer;
+}
 .page1 .main .page .stocks__personal__item .icon {
   grid-column: 1;
 }

@@ -435,6 +435,15 @@ body {
                 color: var(--secondary-color-text);
               }
             }
+            .column1:hover{
+              cursor: pointer;
+            }
+            .column2:hover{
+              cursor: pointer;
+            }
+            .icon:hover{
+              cursor: pointer;
+            }
             .icon {
               grid-column: 1;
             }
