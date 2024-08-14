@@ -80,7 +80,7 @@ body {
   height: 90%;
   padding-left: -2%;
 }
-.page2 .side .menu .selected {
+.page2 .side .menu .selected a {
   color: var(--accent-color);
 }
 .page2 .side .menu .selected .icon {
@@ -139,7 +139,7 @@ body {
 .page2 .main .header {
   align-items: center;
   width: 100vw;
-  height: 10%;
+  height: 10vh;
   display: grid;
   grid-template-columns: 35vw 35vw 15vw;
   grid-template-rows: 1fr 2fr 1fr;
@@ -232,12 +232,12 @@ body {
 }
 @media (max-width: 376px) {
   .page2 .main .header {
-    width: 100vw;
+    width: 375px;
     height: 15vh;
     padding: 1%;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: 1fr 1fr;
-    align-items: center;
+    justify-content: space-between;
     border-bottom: none;
   }
   .page2 .main .header .menu-mobile {
@@ -245,30 +245,32 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 2vw;
+    margin-left: 5vw;
   }
   .page2 .main .header .title {
     grid-column: 2;
     grid-row: 1;
     align-items: center;
+    margin-left: 10vw;
   }
   .page2 .main .header .search-container {
-    width: 300px;
+    width: 350px;
     height: auto;
     grid-column-start: 1;
     grid-column-end: 4;
-    grid-row: 3;
+    grid-row: 2;
     align-items: start;
     justify-content: start;
     overflow: visible;
     padding: 2%;
+    margin-left: 5vw;
   }
   .page2 .main .header .search-container .search {
     padding-left: 2vw;
     padding-top: 1.2%;
   }
   .page2 .main .header .search-container .search-input {
-    width: 200px;
+    width: 250px;
     border-style: hidden;
     background-color: var(--secondary-color);
   }
@@ -280,8 +282,17 @@ body {
     display: none;
   }
   .page2 .main .header .functions .image {
-    align-items: center;
-    justify-content: start;
+    margin-left: 10vw;
+  }
+}
+.page2 .main .page {
+  width: 100%;
+  height: 100%;
+  background-color: #edeef6;
+}
+@media (max-width: 376px) {
+  .page2 .main .page {
+    background-color: white;
   }
 }
 @media (min-width: 600px) and (max-width: 1400px) {
@@ -294,15 +305,5 @@ body {
   .page2 .main .header .search-container {
     grid-column: 2;
     grid-row: 2;
-  }
-}
-.page2 .main .page {
-  width: 100%;
-  height: 100%;
-  background-color: #edeef6;
-}
-@media (max-width: 376px) {
-  .page2 .main .page {
-    background-color: white;
   }
 }

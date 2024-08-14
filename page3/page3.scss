@@ -84,8 +84,8 @@ body {
         height: 90%;
         padding-left: -2%;
         .selected {
-          color: var(--accent-color);
-  
+          a{ color: var(--accent-color);
+          }
           .icon {
             filter: invert(105%) sepia(910%) saturate(1000%) hue-rotate(560deg);
           }
