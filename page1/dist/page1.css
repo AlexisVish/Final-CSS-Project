@@ -80,7 +80,7 @@ body {
   height: 90%;
   padding-left: -2%;
 }
-.page1 .side .menu .selected {
+.page1 .side .menu .selected a {
   color: var(--accent-color);
 }
 .page1 .side .menu .selected .icon {
