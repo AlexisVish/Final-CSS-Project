@@ -384,20 +384,22 @@ body {
           height:10vh;
           width: 75vw;
           align-items: center;
-          button{
-            width: 7vw;
-            height: 3vh;
-            border-radius: 15%;
-            background-color: var(--primary-color);
-            border-color: var(--body-color-text);
-            border-style: solid;
-            border-width: 1px;
-         padding: 3%;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
+
+          button {
+            width: 10vw;
+            background-color: white; 
+            border: solid var(--body-color-text); 
+            color: var(--body-color-text);
+            padding: 1%;
+            text-align: center; 
+            cursor: pointer;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
        
-          }
+        }
+        button:hover{
+          border-color: var(--accent-color);
+       color: var(--accent-color); }
           .icon {
             display: flex;
             align-items: center;
@@ -464,6 +466,21 @@ body {
             .icon {
               width: 60%;
               padding-left: 5%;
+            }
+          }
+        }
+        .body{
+          width: 95vw;
+          &__topic{
+            width: 95vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .mobile{
+              display: none;
+            }
+            button{
+              width: 20vw;
             }
           }
         }
