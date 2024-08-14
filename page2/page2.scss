@@ -447,7 +447,7 @@ body {
         height: 4000px;
         display: flex;
         flex-direction: column;
-        gap: 32vw;
+        gap: 10vw;
         width: 400px;
         padding-top: 5vw;
         .total {
@@ -483,7 +483,7 @@ body {
               width: 20vw;
             }
           }
-        }
+        }}}
         @media (min-width: 600px) and (max-width: 1400px) {
           .header {
             display: grid;
@@ -498,5 +498,4 @@ body {
         }
       }
     }
-  }
-}
+  

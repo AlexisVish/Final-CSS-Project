@@ -435,7 +435,7 @@ body {
     height: 4000px;
     display: flex;
     flex-direction: column;
-    gap: 32vw;
+    gap: 10vw;
     width: 400px;
     padding-top: 5vw;
   }
@@ -471,14 +471,14 @@ body {
     width: 20vw;
   }
 }
-@media (max-width: 376px) and (min-width: 600px) and (max-width: 1400px) {
-  .page2 .main .page .header {
+@media (min-width: 600px) and (max-width: 1400px) {
+  .page2 .main .header {
     display: grid;
     grid-template-columns: 2fr 2fr 1fr 1fr;
     overflow: inherit;
     padding-right: 5vw;
   }
-  .page2 .main .page .header .search-container {
+  .page2 .main .header .search-container {
     grid-column: 2;
     grid-row: 2;
   }
