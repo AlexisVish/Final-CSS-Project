@@ -79,7 +79,7 @@ body {
     .menu {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 1vh;
       height: 90%;
       padding-left: -2%;
       .selected {
@@ -520,11 +520,11 @@ body {
         }
         .graphs {
           position: relative;
-          top: 25vh;
+          top: 20vh;
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 35vh;
+          gap: 20vh;
           margin-right: 20%;
           &__investments {
             width: 75vw;
@@ -539,9 +539,10 @@ body {
         .stocks {
           display: flex;
           flex-direction: column;
-          align-items: center;
+          align-items: start;
+          justify-content: start;
           gap: 10vh;
-          top: 95vh;
+          top: 55vh;
 
           &__personal {
             gap: 2vw;
@@ -565,11 +566,32 @@ body {
       }
     }
   }
-  @media (min-width: 600px) and (max-width: 1400px) {
-    .header {
-      display: grid;
-      grid-template-columns: 2fr 2fr 1fr;
-      margin-right: 15vw;
+  @media (min-width: 600px) and (max-width: 1250px) {
+    .main {
+      .header {
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr;
+        margin-right: 15vw;
+      }
+      .page {
+        .total {
+          position: relative;
+          top: 3vh;
+        }
+        .graphs {
+          position: relative;
+          top: 5vh;
+        }
+        .stocks {
+          position: relative;
+          top: 10vh;
+          &__data {
+            table {
+              height: 25vh;
+            }
+          }
+        }
+      }
     }
   }
 }

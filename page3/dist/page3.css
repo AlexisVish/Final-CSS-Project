@@ -76,7 +76,7 @@ body {
 .page3 .side .menu {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 1vh;
   height: 90%;
   padding-left: -2%;
 }
@@ -235,22 +235,23 @@ body {
 @media (max-width: 376px) {
   .page3 .main .header {
     width: 100vw;
-    height: 10vh;
+    height: 13vh;
     padding: 1%;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 5vh 5vh 1vh;
+    grid-template-rows: 5vh 7vh 2vh;
     align-items: center;
     border-bottom: none;
-    padding-top: 1%;
+    padding-top: 2%;
   }
   .page3 .main .header .menu-mobile {
     grid-area: 1 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 2vw;
+    margin-left: 3vw;
   }
   .page3 .main .header .title {
+    margin-left: 5vw;
     grid-column: 2;
     grid-row: 1;
     align-items: center;
@@ -287,35 +288,14 @@ body {
     justify-content: start;
   }
 }
-@media (min-width: 600px) and (max-width: 1400px) {
-  .page3 .main .header {
-    display: grid;
-    grid-template-columns: 2fr 2fr 1fr 1fr;
-    overflow: inherit;
-    padding-right: 5vw;
-  }
-  .page3 .main .header .search-container {
-    grid-column: 2;
-    grid-row: 2;
-  }
-  .page3 .main .page .total {
-    position: relative;
-    top: 3vh;
-    width: 100vw;
-  }
-  .page3 .main .page .total .ipad {
-    display: none;
-  }
-  .page3 .main .page .total__item {
-    width: 25vw;
-  }
-}
 .page3 .page {
   width: 90%;
-  height: 100%;
+  height: 150vh;
   background-color: #edeef6;
 }
 .page3 .page .total {
+  position: relative;
+  top: 3vh;
   display: flex;
   flex-direction: row;
   gap: 2vw;
@@ -326,7 +306,7 @@ body {
 }
 .page3 .page .total__item {
   height: 11vh;
-  width: 15vw;
+  width: 18vw;
   display: flex;
   flex-direction: row;
   background-color: var(--primary-color);
@@ -383,10 +363,10 @@ body {
 }
 .page3 .body {
   width: 100vw;
-  height: 100vh;
+  height: 150vh;
   position: relative;
-  top: 5vh;
-  margin-left: 3vw;
+  top: 7vh;
+  margin-left: 2.5vw;
 }
 .page3 .body__title {
   color: var(--primary-color-text);
@@ -395,11 +375,27 @@ body {
 .page3 .body table {
   align-items: center;
   justify-content: center;
-  width: 70vw;
-  height: 60vh;
+  width: 78vw;
+  height: 70vh;
   background-color: white;
   border-radius: 15px;
   padding: 1%;
+  font: inter;
+}
+.page3 .body table button {
+  width: 10vw;
+  background-color: white;
+  border: solid black 1px;
+  color: black;
+  padding: 1%;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+.page3 .body table button:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
 }
 .page3 .body table thead {
   color: var(--body-color-text);
@@ -407,6 +403,9 @@ body {
 .page3 .body table tr {
   text-align: center;
   vertical-align: center;
+}
+.page3 .body table .last-line {
+  color: red;
 }
 @media (max-width: 376px) {
   .page3 .page {
@@ -419,19 +418,19 @@ body {
   }
   .page3 .page .total {
     position: relative;
-    top: 3vw;
+    top: 3.5vw;
     display: flex;
     flex-direction: row;
     gap: 2vw;
-    width: 100vw;
+    width: 80vw;
   }
   .page3 .page .total .ipad {
     display: none;
   }
   .page3 .page .total__item {
-    height: 7vh;
-    width: 45vw;
-    padding: 2% 10% 3% 10%;
+    height: 10vh;
+    width: 55vw;
+    padding: 7% 15% 7% 15%;
   }
   .page3 .page .total__item .icon {
     width: 60%;
@@ -451,5 +450,48 @@ body {
   }
   .page3 .page .body__topic button {
     width: 20vw;
+  }
+  .page3 .page .body table td:nth-child(1),
+.page3 .page .body table td:nth-child(4),
+.page3 .page .body table td:nth-child(5),
+.page3 .page .body table td:nth-child(6),
+.page3 .page .body table th:nth-child(1),
+.page3 .page .body table th:nth-child(4),
+.page3 .page .body table th:nth-child(5),
+.page3 .page .body table th:nth-child(6) {
+    display: none;
+  }
+  .page3 .page .body table {
+    width: 90vw;
+  }
+  .page3 .page .body table button {
+    width: 25vw;
+  }
+}
+@media (min-width: 600px) and (max-width: 1250px) {
+  .page3 .main .header {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr;
+    overflow: inherit;
+    padding-right: 5vw;
+  }
+  .page3 .main .header .search-container {
+    padding-left: -5%;
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .page3 .main .page .total {
+    position: relative;
+    top: 3vh;
+    width: 100vw;
+  }
+  .page3 .main .page .total .ipad {
+    display: none;
+  }
+  .page3 .main .page .total__item {
+    width: 25vw;
+  }
+  .page3 .main .body table {
+    height: 35vh;
   }
 }

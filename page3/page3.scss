@@ -79,7 +79,7 @@ body {
     .menu {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 1vh;
       height: 90%;
       padding-left: -2%;
       .selected {
@@ -248,21 +248,22 @@ body {
     @media (max-width: 376px) {
       .header {
         width: 100vw;
-        height: 10vh;
+        height: 13vh;
         padding: 1%;
         grid-template-columns: 1fr 2fr 1fr;
-        grid-template-rows: 5vh 5vh 1vh;
+        grid-template-rows: 5vh 7vh 2vh;
         align-items: center;
         border-bottom: none;
-        padding-top: 1%;
+        padding-top: 2%;
         .menu-mobile {
           grid-area: 1 1;
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-left: 2vw;
+          margin-left: 3vw;
         }
         .title {
+          margin-left: 5vw;
           grid-column: 2;
           grid-row: 1;
           align-items: center;
@@ -301,39 +302,16 @@ body {
         }
       }
     }
-    @media (min-width: 600px) and (max-width: 1400px) {
-      .header {
-        display: grid;
-        grid-template-columns: 2fr 2fr 1fr 1fr;
-        overflow: inherit;
-        padding-right: 5vw;
-        .search-container {
-          grid-column: 2;
-          grid-row: 2;
-        }
-      }
-      .page {
-        .total {
-          position: relative;
-          top: 3vh;
-          width: 100vw;
-          .ipad {
-            display: none;
-          }
-          &__item {
-            width: 25vw;
-          }
-        }
-      }
-    }
   }
 
   .page {
     width: 90%;
-    height: 100%;
+    height: 150vh;
     background-color: rgb(237, 238, 246);
 
     .total {
+      position: relative;
+      top: 3vh;
       display: flex;
       flex-direction: row;
       gap: 2vw;
@@ -343,7 +321,7 @@ body {
       padding-bottom: 1%;
       &__item {
         height: 11vh;
-        width: 15vw;
+        width: 18vw;
         display: flex;
         flex-direction: row;
         background-color: var(--primary-color);
@@ -402,10 +380,10 @@ body {
   }
   .body {
     width: 100vw;
-    height: 100vh;
+    height: 150vh;
     position: relative;
-    top: 5vh;
-    margin-left: 3vw;
+    top: 7vh;
+    margin-left: 2.5vw;
     &__title {
       color: var(--primary-color-text);
       font-size: 0.8rem;
@@ -413,18 +391,37 @@ body {
     table {
       align-items: center;
       justify-content: center;
-      width: 70vw;
-      height: 60vh;
+      width: 78vw;
+      height: 70vh;
       background-color: white;
       border-radius: 15px;
       padding: 1%;
-    thead{
-      color: var(--body-color-text);
-    }
-    tr{
-      text-align: center;
-      vertical-align: center;
-    }
+      font: inter;
+      button {
+        width: 10vw;
+        background-color: white;
+        border: solid black 1px;
+        color: black;
+        padding: 1%;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 20px;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        border-color: var(--accent-color);
+        color: var(--accent-color);
+      }
+      thead {
+        color: var(--body-color-text);
+      }
+      tr {
+        text-align: center;
+        vertical-align: center;
+      }
+      .last-line {
+        color: red;
+      }
     }
   }
   @media (max-width: 376px) {
@@ -437,18 +434,18 @@ body {
       padding-top: 5vw;
       .total {
         position: relative;
-        top: 3vw;
+        top: 3.5vw;
         display: flex;
         flex-direction: row;
         gap: 2vw;
-        width: 100vw;
+        width: 80vw;
         .ipad {
           display: none;
         }
         &__item {
-          height: 7vh;
-          width: 45vw;
-          padding: 2% 10% 3% 10%;
+          height: 10vh;
+          width: 55vw;
+          padding: 7% 15% 7% 15%;
           .icon {
             width: 60%;
             padding-left: 5%;
@@ -468,6 +465,58 @@ body {
           button {
             width: 20vw;
           }
+        }
+            table td:nth-child(1),
+            table td:nth-child(4),
+            table td:nth-child(5),
+            table td:nth-child(6),
+            table th:nth-child(1),
+            table th:nth-child(4),
+            table th:nth-child(5),
+            table th:nth-child(6) {
+              display: none;
+            }
+            table{
+              width: 90vw;
+              button{
+width: 25vw;
+              }
+            }
+          
+        
+      }
+    }
+  }
+
+  @media (min-width: 600px) and (max-width: 1250px) {
+    .main {
+      .header {
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr 1fr;
+        overflow: inherit;
+        padding-right: 5vw;
+        .search-container {
+          padding-left: -5%;
+          grid-column: 2;
+          grid-row: 2;
+        }
+      }
+      .page {
+        .total {
+          position: relative;
+          top: 3vh;
+          width: 100vw;
+          .ipad {
+            display: none;
+          }
+          &__item {
+            width: 25vw;
+          }
+        }
+      }
+      .body {
+        table {
+          height: 35vh;
         }
       }
     }
