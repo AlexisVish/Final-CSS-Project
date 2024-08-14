@@ -344,7 +344,6 @@ body {
       &__item {
         height: 11vh;
         width: 15vw;
-        padding: 1%;
         display: flex;
         flex-direction: row;
         background-color: var(--primary-color);
@@ -385,7 +384,7 @@ body {
             color: var(--body-color-text);
             margin-top: 0;
             margin-bottom: 0;
-            font-size: 0.7rem;
+            font-size: 1rem;
           }
           h2 {
             color: black;
@@ -401,7 +400,33 @@ body {
       }
     }
   }
-
+  .body {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    top: 5vh;
+    margin-left: 3vw;
+    &__title {
+      color: var(--primary-color-text);
+      font-size: 0.8rem;
+    }
+    table {
+      align-items: center;
+      justify-content: center;
+      width: 70vw;
+      height: 60vh;
+      background-color: white;
+      border-radius: 15px;
+      padding: 1%;
+    thead{
+      color: var(--body-color-text);
+    }
+    tr{
+      text-align: center;
+      vertical-align: center;
+    }
+    }
+  }
   @media (max-width: 376px) {
     .page {
       height: 4000px;
