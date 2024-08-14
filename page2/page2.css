@@ -133,7 +133,7 @@ body {
   }
 }
 .page2 .main {
-  height: 1000vh;
+  height: 150vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -348,6 +348,8 @@ body {
   cursor: pointer;
 }
 .page2 .main .page .body {
+  position: relative;
+  top: 2vh;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -374,9 +376,17 @@ body {
   align-items: center;
 }
 .page2 .main .page .body__topic button {
-  width: 5vw;
+  width: 7vw;
   height: 3vh;
-  border-radius: 5%;
+  border-radius: 15%;
+  background-color: var(--primary-color);
+  border-color: var(--body-color-text);
+  border-style: solid;
+  border-width: 1px;
+  padding: 3%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
 .page2 .main .page .body__topic .icon {
   display: flex;
