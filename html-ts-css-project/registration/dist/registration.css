@@ -19,12 +19,31 @@ body {
   font-size: 16px;
 }
 
+a {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  text-decoration: none;
+}
+
+.back {
+  position: relative;
+  top: 15px;
+  left: 15px;
+}
+
+img {
+  width: 50px;
+  position: relative;
+  top: 15px;
+  left: 10px;
+}
+
 .box {
   position: relative;
   display: grid;
   display: flex;
   flex-direction: column;
-  gap: 50px;
   justify-content: center;
   align-items: center;
   background-color: #e3edff;
@@ -34,11 +53,18 @@ body {
   margin-left: 10vw;
   margin-right: 10vw;
   margin-bottom: 10vh;
-  margin-top: 10vh;
+  margin-top: 5vh;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .btn {
   margin-top: 1rem;
+  margin: 1rem;
   background-color: #3377ff;
   width: 30vh;
   height: 6.5vh;
@@ -52,7 +78,7 @@ body {
 .btns {
   display: flex;
   flex-direction: row;
-  gap: 15px;
+  gap: 2rem;
 }
 
 .btn:hover {
@@ -64,8 +90,8 @@ body {
 }
 
 .input {
-  margin-bottom: 1rem;
-  padding: 10px;
+  margin-bottom: 5px;
+  padding: 5px;
   border: 1px solid #4d4d4d;
   border-radius: 4px;
   font-size: 1rem;
