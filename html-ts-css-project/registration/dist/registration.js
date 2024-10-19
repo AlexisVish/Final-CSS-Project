@@ -5,11 +5,12 @@ var Student = /** @class */ (function () {
         this.email = em;
         this.password = pass;
     }
-    Student.prototype.getUser = function () {
-        localStorage.setItem("user", JSON.stringify(users));
+    Student.prototype.pushUser = function (users) {
+        localStorage.setItem("users", JSON.stringify(users));
     };
     return Student;
 }());
+var users = [];
 var container = document.getElementById("registration-container");
 container.classList.add("box");
 container.classList.add("open-sans");
@@ -26,13 +27,13 @@ var backButton = document.createElement("button");
 reg.innerText = "Register!";
 reg.classList.add("h1");
 nameInput.placeholder = "Name";
-nameInput.type = "name";
+nameInput.type = "text";
 nameInput.classList.add("input");
 phoneInput.placeholder = "Phone";
-phoneInput.type = "phone";
+phoneInput.type = "tel";
 phoneInput.classList.add("input");
 mailInput.placeholder = "E-mail";
-mailInput.type = "mail";
+mailInput.type = "email";
 mailInput.classList.add("input");
 passInput.placeholder = "Password";
 passInput.type = "password";
@@ -41,33 +42,44 @@ doublepass.placeholder = "Repeat the password";
 doublepass.type = "password";
 doublepass.classList.add("input");
 regButton.textContent = "Register";
-regButton.type = "submit";
+regButton.type = "button";
 regButton.classList.add("btn");
 backButton.textContent = "Back to login";
-backButton.type = "submit";
+backButton.type = "button";
 backButton.classList.add("btn");
-backButton.addEventListener('click', function (event) {
+backButton.addEventListener("click", function (event) {
     event.preventDefault();
     window.location.href = "/html-ts-css-project/login/login.html";
 });
 btns.append(regButton, backButton);
 form.append(nameInput, phoneInput, mailInput, passInput, doublepass);
 container.append(reg, form, btns);
-var users = [];
-regButton.addEventListener('click', function (event) {
+regButton.addEventListener("click", function (event) {
     event.preventDefault();
     try {
-        if (passInput.value === doublepass.value) {
-            var user = new Student(nameInput.value, phoneInput.valueAsNumber, mailInput.value, passInput.value);
-            users.push(user);
-        }
-        else {
+        if (passInput.value !== doublepass.value) {
             alert("The passwords didn't match!");
             passInput.value = "";
             doublepass.value = "";
+            return;
+        }
+        else {
+            var phoneRegex = /^\d{10}$/;
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(mailInput.value)) {
+                alert("Please enter a valid email address.");
+            }
+            else if (!phoneRegex.test(phoneInput.value)) {
+                alert("Please enter a valid 10-digit phone number.");
+            }
+            else {
+                var user = new Student(nameInput.value, phoneInput.valueAsNumber, mailInput.value, passInput.value);
+                users.push(user);
+                user.pushUser(users);
+            }
         }
     }
     catch (error) {
-        console.error('no events');
+        console.error("no events");
     }
 });

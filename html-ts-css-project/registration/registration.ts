@@ -9,10 +9,11 @@ class Student {
     this.email = em;
     this.password = pass;
   }
-  getUser() {
-    localStorage.setItem("user", JSON.stringify(users));
+  pushUser(users: Student[]) {
+    localStorage.setItem("users", JSON.stringify(users));
   }
 }
+const users: Student[] = [];
 
 const container = document.getElementById(
   "registration-container"
@@ -35,15 +36,15 @@ reg.innerText = "Register!";
 reg.classList.add("h1");
 
 nameInput.placeholder = "Name";
-nameInput.type = "name";
+nameInput.type = "text";
 nameInput.classList.add("input");
 
 phoneInput.placeholder = "Phone";
-phoneInput.type = "phone";
+phoneInput.type = "tel";
 phoneInput.classList.add("input");
 
 mailInput.placeholder = "E-mail";
-mailInput.type = "mail";
+mailInput.type = "email";
 mailInput.classList.add("input");
 
 passInput.placeholder = "Password";
@@ -55,40 +56,49 @@ doublepass.type = "password";
 doublepass.classList.add("input");
 
 regButton.textContent = "Register";
-regButton.type="submit";
+regButton.type = "button";
 regButton.classList.add("btn");
 
 backButton.textContent = "Back to login";
-backButton.type="submit";
+backButton.type = "button";
 backButton.classList.add("btn");
-backButton.addEventListener('click',(event)=>{
-    event.preventDefault();
-    window.location.href="/html-ts-css-project/login/login.html"
-})
+backButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  window.location.href = "/html-ts-css-project/login/login.html";
+});
 
 btns.append(regButton, backButton);
 form.append(nameInput, phoneInput, mailInput, passInput, doublepass);
 container.append(reg, form, btns);
 
-const users: Student[] = [];
-regButton.addEventListener('click', (event)=>{
-    event.preventDefault();
-    try {
-        if(passInput.value===doublepass.value){
-            const user = new Student(
-                nameInput.value,
-                phoneInput.valueAsNumber,
-                mailInput.value,
-                passInput.value
-              );
-              users.push(user);
-        }else{
-            alert("The passwords didn't match!");
-            passInput.value="";
-            doublepass.value="";
-        }
-    } catch (error) {
-        console.error('no events')
+regButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  try {
+    if (passInput.value !== doublepass.value) {
+      alert("The passwords didn't match!");
+      passInput.value = "";
+      doublepass.value = "";
+      return;
+    } else {
+      const phoneRegex = /^\d{10}$/;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(mailInput.value)) {
+        alert("Please enter a valid email address.");
+      }else
+      if (!phoneRegex.test(phoneInput.value)) {
+        alert("Please enter a valid 10-digit phone number.");
+      } else {
+        const user = new Student(
+          nameInput.value,
+          phoneInput.valueAsNumber,
+          mailInput.value,
+          passInput.value
+        );
+        users.push(user);
+        user.pushUser(users);
+      }
     }
-})
-
+  } catch (error) {
+    console.error("no events");
+  }
+});
