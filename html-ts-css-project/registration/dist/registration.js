@@ -13,7 +13,7 @@ var Student = /** @class */ (function () {
 var container = document.getElementById("registration-container");
 container.classList.add("box");
 container.classList.add("open-sans");
-var reg = document.createElement('p');
+var reg = document.createElement("p");
 var form = document.createElement("form");
 var nameInput = document.createElement("input");
 var phoneInput = document.createElement("input");
@@ -44,6 +44,10 @@ regButton.textContent = "Register";
 regButton.classList.add("btn");
 backButton.textContent = "Back to login";
 backButton.classList.add("btn");
+backButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    window.location.href = "/html-ts-css-project/login/login.html";
+});
 btns.append(regButton, backButton);
 form.append(nameInput, phoneInput, mailInput, passInput, doublepass);
 container.append(reg, form, btns);

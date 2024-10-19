@@ -1,31 +1,33 @@
-body{
-    background-color: #FBFBFD;
+body {
+  background-color: #fbfbfd;
+  color: #4D4D4D;
+
 }
 .open-sans {
-    font-family: "Open Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: weight;
-    font-style: normal;
-    font-variation-settings:
-      "wdth" 100;
-      font-size: 18px;
-  }
-  .h1{
-font-size: 22px;
-  }
-  .smaller{
-    font-size: 16px;
-  }
-  a{
-    display: flex;
-    flex-direction: row;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  font-size: 18px;
+}
+.h1 {
+  font-size: 22px;
+}
+.smaller {
+  font-size: 16px;
+}
+a {
+  display: flex;
+  flex-direction: row;
   position: relative;
   text-decoration: none;
 }
-.back{
- position: relative;
- top: 15px;
- left: 15px;
+.back {
+  position: relative;
+  top: 15px;
+  left: 15px;
+  color: #4D4D4D;
 
 }
 img {
@@ -37,9 +39,9 @@ img {
 .box {
   position: relative;
   display: grid;
- display: flex;
- flex-direction: column;
- justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   background-color: #e3edff;
   height: 80vh;
@@ -47,13 +49,13 @@ img {
   border-radius: 3vh;
   margin-left: 10vw;
   margin-right: 10vw;
-margin-bottom: 10vh;
+  margin-bottom: 10vh;
   margin-top: 5vh;
 }
-form{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 .btn {
   margin-top: 1rem;
@@ -67,10 +69,11 @@ form{
   transition: background-color 0.3s ease;
   border-radius: 15px;
 }
-.btns{
-    display: flex;
-    flex-direction: row;
-gap: 2rem;}
+.btns {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
 .btn:hover {
   background-color: #99bbff;
 }

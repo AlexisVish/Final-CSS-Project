@@ -1,5 +1,6 @@
 body {
-  background-color: #FBFBFD;
+  background-color: #fbfbfd;
+  color: #4D4D4D;
 }
 
 .open-sans {
@@ -30,6 +31,7 @@ a {
   position: relative;
   top: 15px;
   left: 15px;
+  color: #4D4D4D;
 }
 
 img {
