@@ -76,6 +76,12 @@ regButton.addEventListener("click", function (event) {
                 var user = new Student(nameInput.value, phoneInput.valueAsNumber, mailInput.value, passInput.value);
                 users.push(user);
                 user.pushUser(users);
+                nameInput.textContent = "";
+                phoneInput.textContent = "";
+                mailInput.textContent = "";
+                passInput.textContent = "";
+                doublepass.textContent = "";
+                window.location.href = "/html-ts-css-project/home/home.html";
             }
         }
     }

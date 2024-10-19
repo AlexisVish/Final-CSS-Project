@@ -84,8 +84,7 @@ regButton.addEventListener("click", (event) => {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(mailInput.value)) {
         alert("Please enter a valid email address.");
-      }else
-      if (!phoneRegex.test(phoneInput.value)) {
+      } else if (!phoneRegex.test(phoneInput.value)) {
         alert("Please enter a valid 10-digit phone number.");
       } else {
         const user = new Student(
@@ -96,6 +95,12 @@ regButton.addEventListener("click", (event) => {
         );
         users.push(user);
         user.pushUser(users);
+        nameInput.textContent="";
+        phoneInput.textContent="";
+        mailInput.textContent="";
+        passInput.textContent="";
+        doublepass.textContent="";
+        window.location.href="/html-ts-css-project/home/home.html";
       }
     }
   } catch (error) {

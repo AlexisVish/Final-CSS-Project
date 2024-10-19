@@ -41,25 +41,17 @@ log.className = "log-box";
 loginContainer.classList.add("open-sans");
 log.append(greet, mailInput, passwordInput, check, loginButton);
 
-function checkingData(mailInput, passwordInput) {
-  try {
-    loginButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      const mail = localStorage.getItem("mail");
-      const password = localStorage.getItem("password");
-      return mailInput.value === mail && passwordInput.value === password;
-    });
-  } catch (error) {
-    console.error("No data was found");
+loginButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  const users = JSON.parse(localStorage.getItem("users") || "[]") as Student[]; // Get all users
+  const user = users.find(
+    (u) => u.email === mailInput.value && u.password === passwordInput.value
+  );
+
+  if (user) {
+    window.location.href = "/html-ts-css-project/home/home.html";
   }
-}
-const result = checkingData(mailInput, passwordInput);
-function login(result) {
-  try {
-    if (result === true) {
-      window.location.href = "/html-ts-css-project/home/home.html";
-    }
-  } catch (error) {
-    console.error("No answer from checking function");
-  }
-}
+ else{
+  alert("Invalid e-mail or password!");
+ }
+});
