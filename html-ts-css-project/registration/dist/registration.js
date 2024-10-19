@@ -69,7 +69,7 @@ regButton.addEventListener("click", function (event) {
             if (!emailRegex.test(mailInput.value)) {
                 alert("Please enter a valid email address.");
             }
-            else if (!phoneRegex.test(phoneInput.value)) {
+            if (!phoneRegex.test(phoneInput.value)) {
                 alert("Please enter a valid 10-digit phone number.");
             }
             else {
