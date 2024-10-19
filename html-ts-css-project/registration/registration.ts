@@ -10,7 +10,7 @@ class Student {
     this.password = pass;
   }
   getUser() {
-    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("user", JSON.stringify(users));
   }
 }
 
@@ -55,9 +55,11 @@ doublepass.type = "password";
 doublepass.classList.add("input");
 
 regButton.textContent = "Register";
+regButton.type="submit";
 regButton.classList.add("btn");
 
 backButton.textContent = "Back to login";
+backButton.type="submit";
 backButton.classList.add("btn");
 backButton.addEventListener('click',(event)=>{
     event.preventDefault();
@@ -69,10 +71,24 @@ form.append(nameInput, phoneInput, mailInput, passInput, doublepass);
 container.append(reg, form, btns);
 
 const users: Student[] = [];
-const user = new Student(
-  nameInput.value,
-  phoneInput.valueAsNumber,
-  mailInput.value,
-  passInput.value
-);
-users.push(user);
+regButton.addEventListener('click', (event)=>{
+    event.preventDefault();
+    try {
+        if(passInput.value===doublepass.value){
+            const user = new Student(
+                nameInput.value,
+                phoneInput.valueAsNumber,
+                mailInput.value,
+                passInput.value
+              );
+              users.push(user);
+        }else{
+            alert("The passwords didn't match!");
+            passInput.value="";
+            doublepass.value="";
+        }
+    } catch (error) {
+        console.error('no events')
+    }
+})
+

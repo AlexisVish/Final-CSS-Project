@@ -6,7 +6,7 @@ var Student = /** @class */ (function () {
         this.password = pass;
     }
     Student.prototype.getUser = function () {
-        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("user", JSON.stringify(users));
     };
     return Student;
 }());
@@ -41,8 +41,10 @@ doublepass.placeholder = "Repeat the password";
 doublepass.type = "password";
 doublepass.classList.add("input");
 regButton.textContent = "Register";
+regButton.type = "submit";
 regButton.classList.add("btn");
 backButton.textContent = "Back to login";
+backButton.type = "submit";
 backButton.classList.add("btn");
 backButton.addEventListener('click', function (event) {
     event.preventDefault();
@@ -52,5 +54,20 @@ btns.append(regButton, backButton);
 form.append(nameInput, phoneInput, mailInput, passInput, doublepass);
 container.append(reg, form, btns);
 var users = [];
-var user = new Student(nameInput.value, phoneInput.valueAsNumber, mailInput.value, passInput.value);
-users.push(user);
+regButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    try {
+        if (passInput.value === doublepass.value) {
+            var user = new Student(nameInput.value, phoneInput.valueAsNumber, mailInput.value, passInput.value);
+            users.push(user);
+        }
+        else {
+            alert("The passwords didn't match!");
+            passInput.value = "";
+            doublepass.value = "";
+        }
+    }
+    catch (error) {
+        console.error('no events');
+    }
+});
