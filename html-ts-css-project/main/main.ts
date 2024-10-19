@@ -2,7 +2,7 @@ const main = document.getElementById("main")! as HTMLDivElement;
 const conatiner = document.createElement("div")! as HTMLDivElement;
 main.appendChild(conatiner);
 
-conatiner.classList.add('log-box');
+conatiner.classList.add('box');
 conatiner.classList.add('open-sans');
 
 const greed = document.createElement("p")! as HTMLParagraphElement;

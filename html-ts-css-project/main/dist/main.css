@@ -19,7 +19,7 @@ body {
   font-size: 16px;
 }
 
-.log-box {
+.box {
   position: relative;
   display: grid;
   display: flex;

@@ -1,7 +1,7 @@
 var main = document.getElementById("main");
 var conatiner = document.createElement("div");
 main.appendChild(conatiner);
-conatiner.classList.add('log-box');
+conatiner.classList.add('box');
 conatiner.classList.add('open-sans');
 var greed = document.createElement("p");
 var btns = document.createElement("div");
