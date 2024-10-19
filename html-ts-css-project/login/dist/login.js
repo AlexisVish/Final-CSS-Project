@@ -1,19 +1,23 @@
 var log = document.createElement("log");
 var loginContainer = document.getElementById("login-container");
-loginContainer.appendChild(log);
-log.className = 'log-box';
 var greet = document.createElement("p");
 var mailInput = document.createElement("mail");
 var passwordInput = document.createElement("password");
 var loginButton = document.createElement("button");
 greet.innerText = "Login";
-mailInput.placeholder = "enter your mail please";
-mailInput.className = 'input';
-passwordInput.placeholder = "enter your password please";
-passwordInput.className = 'input';
+greet.classList.add("h1");
+mailInput.type = "email";
+mailInput.placeholder = "Email";
+mailInput.classList.add("input");
+passwordInput.type = "password";
+passwordInput.placeholder = "Passsword";
+passwordInput.classList.add("input");
 loginButton.type = "submit";
 loginButton.textContent = "Login";
-loginButton.className = 'btn';
+loginButton.className = "btn";
+loginContainer.appendChild(log);
+log.className = "log-box";
+loginContainer.classList.add("open-sans");
 log.append(greet, mailInput, passwordInput, loginButton);
 function checkingData(mailInput, passwordInput) {
     try {
@@ -34,6 +38,6 @@ function login(checkingData) {
         }
     }
     catch (error) {
-        console.error('No answer from checking function');
+        console.error("No answer from checking function");
     }
 }

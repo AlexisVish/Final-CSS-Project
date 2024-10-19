@@ -1,28 +1,34 @@
-const log = document.createElement("log") as HTMLParagraphElement;
+const log = document.createElement("log") as HTMLFormElement;
 
 const loginContainer = document.getElementById(
   "login-container"
 )! as HTMLDivElement;
-loginContainer.appendChild(log);
-log.className='log-box';
+
 
 const greet = document.createElement("p")! as HTMLParagraphElement;
 const mailInput = document.createElement("mail")! as HTMLInputElement;
 const passwordInput = document.createElement("password")! as HTMLInputElement;
 const loginButton = document.createElement("button")! as HTMLButtonElement;
 
-greet.innerText="Login";
+greet.innerText = "Login";
+greet.classList.add("h1");
 
-mailInput.placeholder="enter your mail please";
-mailInput.className='input';
+mailInput.type="email";
+mailInput.placeholder = "Email";
+mailInput.classList.add("input");
 
-passwordInput.placeholder="enter your password please";
-passwordInput.className='input';
+passwordInput.type="password";
+passwordInput.placeholder = "Passsword";
+passwordInput.classList.add("input");
 
-loginButton.type="submit";
-loginButton.textContent="Login"
-loginButton.className='btn';
+loginButton.type = "submit";
+loginButton.textContent = "Login";
+loginButton.className = "btn";
 
+
+loginContainer.appendChild(log);
+log.className = "log-box";
+loginContainer.classList.add("open-sans");
 log.append(greet, mailInput, passwordInput, loginButton);
 
 function checkingData(mailInput, passwordInput) {
@@ -40,12 +46,11 @@ function checkingData(mailInput, passwordInput) {
   }
 }
 
-function login(checkingData){
-    try {
-        if (checkingData===true){
-
-        }
-    } catch (error) {
-        console.error('No answer from checking function')
+function login(checkingData) {
+  try {
+    if (checkingData === true) {
     }
+  } catch (error) {
+    console.error("No answer from checking function");
+  }
 }
