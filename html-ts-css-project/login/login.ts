@@ -43,7 +43,7 @@ log.append(greet, mailInput, passwordInput, check, loginButton);
 
 loginButton.addEventListener("click", (event) => {
   event.preventDefault();
-  const users = JSON.parse(localStorage.getItem("users") || "[]") as Student[]; // Get all users
+  const users = JSON.parse(localStorage.getItem("users") || "[]") as Student[]; 
   const user = users.find(
     (u) => u.email === mailInput.value && u.password === passwordInput.value
   );

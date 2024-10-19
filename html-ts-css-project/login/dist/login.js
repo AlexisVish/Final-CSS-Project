@@ -31,7 +31,7 @@ loginContainer.classList.add("open-sans");
 log.append(greet, mailInput, passwordInput, check, loginButton);
 loginButton.addEventListener("click", function (event) {
     event.preventDefault();
-    var users = JSON.parse(localStorage.getItem("users") || "[]"); // Get all users
+    var users = JSON.parse(localStorage.getItem("users") || "[]");
     var user = users.find(function (u) { return u.email === mailInput.value && u.password === passwordInput.value; });
     if (user) {
         window.location.href = "/html-ts-css-project/home/home.html";
