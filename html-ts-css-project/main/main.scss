@@ -1,4 +1,6 @@
-
+body{
+    background-color: #FBFBFD;
+}
 .open-sans {
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
@@ -14,44 +16,25 @@ font-size: 22px;
   .smaller{
     font-size: 16px;
   }
-#login-container {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: start;
-  position: absolute;
-}
-a{
-    display: flex;
-    flex-direction: row;
-  position: relative;
-  text-decoration: none;
-}
-.back{
- position: relative;
- top: 15px;
- left: 15px;
 
-}
-img {
-  width: 45px;
-  position: relative;
-  top: 15px;
-  left: 10px;
-}
 .log-box {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+ display: flex;
+ flex-direction: column;
+ gap: 50px;
+ justify-content: center;
   align-items: center;
   background-color: #e3edff;
-  height: 75vh;
+  height: 80vh;
   width: 80vw;
   border-radius: 3vh;
   margin-left: 10vw;
-  margin-top: 5vh;
+  margin-right: 10vw;
+margin-bottom: 10vh;
+  margin-top: 10vh;
 }
+
 .btn {
   margin-top: 1rem;
   background-color: #3377ff;
@@ -61,8 +44,13 @@ img {
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  border-radius: 15px;
 }
-
+.btns{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
 .btn:hover {
   background-color: #99bbff;
 }
