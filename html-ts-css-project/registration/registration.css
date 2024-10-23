@@ -1,7 +1,6 @@
-.container {
+body {
   background-color: #fbfbfd;
-  display: grid;
-  grid-template: 3fr 9fr/1fr 11fr;
+  color: #4D4D4D;
 }
 
 .open-sans {
@@ -21,19 +20,6 @@
   font-size: 16px;
 }
 
-.nav-bar {
-  grid-row: 2 4;
-  grid-column: 1;
-  align-items: center;
-  justify-content: center;
-  background-color: #3377ff;
-}
-
-.search-container {
-  grid-row: 1;
-  grid-column: 1 4;
-}
-
 a {
   display: flex;
   flex-direction: row;
@@ -45,30 +31,42 @@ a {
   position: relative;
   top: 15px;
   left: 15px;
+  color: #4D4D4D;
 }
 
 img {
-  width: 45px;
+  width: 50px;
   position: relative;
   top: 15px;
   left: 10px;
 }
 
-.bem {
+.box {
   position: relative;
+  display: grid;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #e3edff;
-  height: 75vh;
+  height: 80vh;
   width: 80vw;
   border-radius: 3vh;
   margin-left: 10vw;
+  margin-right: 10vw;
+  margin-bottom: 10vh;
   margin-top: 5vh;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 .btn {
+  margin-top: 1rem;
+  margin: 1rem;
   background-color: #3377ff;
   width: 30vh;
   height: 6.5vh;
@@ -76,6 +74,13 @@ img {
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  border-radius: 15px;
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
 }
 
 .btn:hover {
@@ -87,12 +92,12 @@ img {
 }
 
 .input {
-  margin-bottom: 1rem;
-  padding: 10px;
+  margin-bottom: 5px;
+  padding: 5px;
   border: 1px solid #4d4d4d;
   border-radius: 4px;
   font-size: 1rem;
   width: 35vh;
   height: 6.5vh;
   box-sizing: border-box;
-}
+}/*# sourceMappingURL=registration.css.map */

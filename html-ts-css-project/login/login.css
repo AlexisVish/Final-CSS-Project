@@ -1,7 +1,6 @@
-.container {
-  background-color: #fbfbfd;
-  display: grid;
-  grid-template: 3fr 9fr/1fr 11fr;
+body {
+  color: #4D4D4D;
+  background-color: #FBFBFD;
 }
 
 .open-sans {
@@ -21,17 +20,12 @@
   font-size: 16px;
 }
 
-.nav-bar {
-  grid-row: 2 4;
-  grid-column: 1;
-  align-items: center;
-  justify-content: center;
-  background-color: #3377ff;
-}
-
-.search-container {
-  grid-row: 1;
-  grid-column: 1 4;
+#login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  position: absolute;
 }
 
 a {
@@ -45,6 +39,7 @@ a {
   position: relative;
   top: 15px;
   left: 15px;
+  color: #4D4D4D;
 }
 
 img {
@@ -54,7 +49,7 @@ img {
   left: 10px;
 }
 
-.bem {
+.log-box {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -65,10 +60,13 @@ img {
   width: 80vw;
   border-radius: 3vh;
   margin-left: 10vw;
+  margin-right: 10vw;
+  margin-bottom: 5vh;
   margin-top: 5vh;
 }
 
 .btn {
+  margin-top: 1rem;
   background-color: #3377ff;
   width: 30vh;
   height: 6.5vh;
@@ -76,6 +74,7 @@ img {
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  border-radius: 15px;
 }
 
 .btn:hover {
@@ -95,4 +94,4 @@ img {
   width: 35vh;
   height: 6.5vh;
   box-sizing: border-box;
-}
+}/*# sourceMappingURL=login.css.map */

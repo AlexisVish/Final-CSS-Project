@@ -1,10 +1,11 @@
 var home = document.querySelector("#home");
-var header = document.createElement("header");
+var header = document.createElement("head");
 var navBar = document.createElement("div");
-home.appendChild(navBar);
-home.appendChild(header);
-navBar.innerHTML = "\n  <div class=\"nav-bar box\">\n        <button class=\"nav-bar-account\" onClick=\"onMyAccountClick()\">My Account</button>\n        <button class=\"nav-bar-courses\">My Courses</button>\n        <button class=\"nav-bar-zoom\">My Zoom Meetings</button>\n        <button class=\"nav-bar-forums\">My Forums</button>\n        <button class=\"nav-bar-lessons\">My Lessons</button>\n    </div>\n\n   \n   ";
-header.innerHTML = "\n   <div class=\"search-container\">\n        <input type=\"text\" id=\"search-bar\" placeholder=\"Search...\" />\n        <button id=\"search-button\">Search</button>\n    </div>\n   ";
+var body = document.createElement("div");
+home.append(navBar, header, body);
+home.classList.add("container");
+navBar.innerHTML = "\n  <div class=\"nav-bar\">\n        <button class=\"open-sans nav-bar__account btn\" onClick=\"onMyAccountClick()\">My Account</button>\n        <button class=\"open-sans nav-bar__courses btn\">My Courses</button>\n        <button class=\"open-sans nav-bar__zoom btn\">My Zoom Meetings</button>\n        <button class=\"open-sans nav-bar__forums btn\">My Forums</button>\n        <button class=\"open-sans nav-bar__lessons btn\">My Lessons</button>\n    </div>\n\n   \n   ";
+header.innerHTML = "\n   <div class=\"search-container open-sans\">\n        <input type=\"text\" id=\"search-bar\" placeholder=\"Search...\" />\n        <button id=\"search-button\" class=\"open-sans\">Search</button>\n    </div>\n   ";
 function onMyAccountClick() {
     window.location.href = "/html-ts-css-project/registration/registration.html";
 }

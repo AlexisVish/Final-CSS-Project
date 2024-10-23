@@ -1,16 +1,17 @@
 const home = document.querySelector("#home")! as HTMLDivElement;
-const header = document.createElement("header") as HTMLHeadElement;
+const header = document.createElement("head") as HTMLDivElement;
 const navBar = document.createElement("div")! as HTMLDivElement;
-home.appendChild(navBar);
-home.appendChild(header);
+const body = document.createElement("div")! as HTMLDivElement;
+home.append(navBar, header, body);
+home.classList.add("container");
 
 navBar.innerHTML = `
-  <div class="nav-bar box">
-        <button class="nav-bar-account" onClick="onMyAccountClick()">My Account</button>
-        <button class="nav-bar-courses">My Courses</button>
-        <button class="nav-bar-zoom">My Zoom Meetings</button>
-        <button class="nav-bar-forums">My Forums</button>
-        <button class="nav-bar-lessons">My Lessons</button>
+  <div class="nav-bar">
+        <button class="open-sans nav-bar__account btn" onClick="onMyAccountClick()">My Account</button>
+        <button class="open-sans nav-bar__courses btn">My Courses</button>
+        <button class="open-sans nav-bar__zoom btn">My Zoom Meetings</button>
+        <button class="open-sans nav-bar__forums btn">My Forums</button>
+        <button class="open-sans nav-bar__lessons btn">My Lessons</button>
     </div>
 
    
@@ -19,9 +20,9 @@ navBar.innerHTML = `
 
 
    header.innerHTML=`
-   <div class="search-container">
+   <div class="search-container open-sans">
         <input type="text" id="search-bar" placeholder="Search..." />
-        <button id="search-button">Search</button>
+        <button id="search-button" class="open-sans">Search</button>
     </div>
    `
 

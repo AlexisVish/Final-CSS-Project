@@ -1,7 +1,6 @@
-.container {
-  background-color: #fbfbfd;
-  display: grid;
-  grid-template: 3fr 9fr/1fr 11fr;
+body {
+  background-color: #FBFBFD;
+  color: #4D4D4D;
 }
 
 .open-sans {
@@ -21,54 +20,26 @@
   font-size: 16px;
 }
 
-.nav-bar {
-  grid-row: 2 4;
-  grid-column: 1;
-  align-items: center;
-  justify-content: center;
-  background-color: #3377ff;
-}
-
-.search-container {
-  grid-row: 1;
-  grid-column: 1 4;
-}
-
-a {
-  display: flex;
-  flex-direction: row;
+.box {
   position: relative;
-  text-decoration: none;
-}
-
-.back {
-  position: relative;
-  top: 15px;
-  left: 15px;
-}
-
-img {
-  width: 45px;
-  position: relative;
-  top: 15px;
-  left: 10px;
-}
-
-.bem {
-  position: relative;
+  display: grid;
   display: flex;
   flex-direction: column;
+  gap: 50px;
   justify-content: center;
   align-items: center;
   background-color: #e3edff;
-  height: 75vh;
+  height: 80vh;
   width: 80vw;
   border-radius: 3vh;
   margin-left: 10vw;
-  margin-top: 5vh;
+  margin-right: 10vw;
+  margin-bottom: 10vh;
+  margin-top: 10vh;
 }
 
 .btn {
+  margin-top: 1rem;
   background-color: #3377ff;
   width: 30vh;
   height: 6.5vh;
@@ -76,6 +47,13 @@ img {
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  border-radius: 15px;
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
 }
 
 .btn:hover {
@@ -95,4 +73,4 @@ img {
   width: 35vh;
   height: 6.5vh;
   box-sizing: border-box;
-}
+}/*# sourceMappingURL=main.css.map */

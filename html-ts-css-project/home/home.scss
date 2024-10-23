@@ -1,37 +1,43 @@
-
-.open-sans {
-    font-family: "Open Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: weight;
-    font-style: normal;
-    font-variation-settings:
-      "wdth" 100;
-      font-size: 18px;
-  }
-  .h1{
-font-size: 22px;
-  }
-  .smaller{
-    font-size: 16px;
-  }
-#login-container {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: start;
-  position: absolute;
+.container {
+  background-color: #fbfbfd;
+  display: grid;
+  grid-template: 3fr 9fr/1fr 11fr;
 }
-a{
-    display: flex;
-    flex-direction: row;
+.open-sans {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  font-size: 18px;
+}
+.h1 {
+  font-size: 22px;
+}
+.smaller {
+  font-size: 16px;
+}
+.nav-bar {
+    grid-row: 2 4;
+    grid-column: 1;
+    align-items: center;
+    justify-content: center;
+  background-color: #3377ff;
+}
+.search-container{
+  grid-row: 1;
+  grid-column: 1 4;
+}
+a {
+  display: flex;
+  flex-direction: row;
   position: relative;
   text-decoration: none;
 }
-.back{
- position: relative;
- top: 15px;
- left: 15px;
-
+.back {
+  position: relative;
+  top: 15px;
+  left: 15px;
 }
 img {
   width: 45px;
@@ -39,7 +45,7 @@ img {
   top: 15px;
   left: 10px;
 }
-.log-box {
+.bem {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -53,7 +59,6 @@ img {
   margin-top: 5vh;
 }
 .btn {
-  margin-top: 1rem;
   background-color: #3377ff;
   width: 30vh;
   height: 6.5vh;
