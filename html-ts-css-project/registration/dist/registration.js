@@ -42,10 +42,10 @@ doublepass.placeholder = "Repeat the password";
 doublepass.type = "password";
 doublepass.classList.add("input");
 regButton.textContent = "Register";
-regButton.type = "button";
+regButton.type = "submit";
 regButton.classList.add("btn");
 backButton.textContent = "Back to login";
-backButton.type = "button";
+backButton.type = "submit";
 backButton.classList.add("btn");
 backButton.addEventListener("click", function (event) {
     event.preventDefault();
