@@ -3,11 +3,13 @@ class Student {
   phone: number;
   email: string;
   password: string;
+  id:string;
   constructor(n: string, p: number, em: string, pass: string) {
     this.name = n;
     this.phone = p;
     this.email = em;
     this.password = pass;
+    this.id = crypto.randomUUID();
   }
   pushUser(users: Student[]) {
     localStorage.setItem("users", JSON.stringify(users));
