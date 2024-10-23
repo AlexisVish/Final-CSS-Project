@@ -57,6 +57,12 @@ doublepass.placeholder = "Repeat the password";
 doublepass.type = "password";
 doublepass.classList.add("input");
 
+nameInput.required = true;
+phoneInput.required = true;
+mailInput.required = true;
+passInput.required = true;
+doublepass.required = true;
+
 regButton.textContent = "Register";
 regButton.type = "submit";
 regButton.classList.add("btn");
