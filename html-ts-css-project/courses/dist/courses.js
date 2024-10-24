@@ -34,6 +34,16 @@ function onImageClick() {
     window.location.href = "https://www.harvard.edu/";
 }
 nav.innerHTML = "\n  <div class=\"nav-bar\">\n    <button class=\"open-sans nav-bar__account btn\" onClick=\"OnAccountClick()\">My Account</button>\n    <button class=\"open-sans nav-bar__courses btn\" onClick=\"OnCoursesClick()\">My Courses</button>\n    <button class=\"open-sans nav-bar__zoom btn\">My Zoom Meetings</button>\n    <button class=\"open-sans nav-bar__forums btn\">My Forums</button>\n    <button class=\"open-sans nav-bar__lessons btn\" onClick=\"onMyExitClick()\">Exit</button>\n  </div>\n";
+function renderCourses() {
+    var userDetailsString = localStorage.getItem("user");
+    var userDetails = userDetailsString ? JSON.parse(userDetailsString) : {};
+    coursesList.innerHTML = "\n     <div class=\"details\">\n      <img class=\"userPhoto\" src=\"/html-ts-css-project/images/profile.webp\" alt=\"null photo\">\n      <h1>User Name: <span id=\"userName\">" + userDetails.name + "</span></h1>\n      <h2>User Id: <span id=\"userId\">123</span></h2>\n      <h2>My Courses: <span id=\"myCourses\">" + (userDetails.courses
+        .map(function (courseId) { return getCourseNameById(courseId); })
+        .join(", ") || "None") + "</span></h2>\n    </div>\n    <ul>\n      " + courses
+        .map(function (course) { return "\n        <button onClick=\"onCourseClick('" + course.courseId + "')\" class=\"btn\">\n          " + course.courseName + "\n        </button>\n      "; })
+        .join("") + "\n    </ul>\n \n  ";
+}
+renderCourses();
 function OnAccountClick() {
     window.location.href = "../home/home.html";
 }
@@ -49,27 +59,22 @@ function onSearchClick() {
 function onMyExitClick() {
     window.location.href = "../login/login.html";
 }
-function renderCourses() {
-    var userDetailsString = localStorage.getItem("user");
-    var userDetails = userDetailsString ? JSON.parse(userDetailsString) : {};
-    coursesList.innerHTML = "\n     <div class=\"details\">\n      <img class=\"userPhoto\" src=\"/html-ts-css-project/images/profile.webp\" alt=\"null photo\">\n      <h1>User Name: <span id=\"userName\">" + userDetails.name + "</span></h1>\n      <h2>User Id: <span id=\"userId\">123</span></h2>\n      <h2>My Courses: <span id=\"myCourses\">" + (userDetails.courses.map(function (courseId) { return getCourseNameById(courseId); }).join(", ") || "None") + "</span></h2>\n    </div>\n    <ul>\n      " + courses
-        .map(function (course) { return "\n        <button onClick=\"onCourseClick('" + course.courseId + "')\" class=\"btn\">\n          " + course.courseName + "\n        </button>\n      "; }).join("") + "\n    </ul>\n \n  ";
-}
-renderCourses();
 function getCourseNameById(courseId) {
-    var course = courses.find(function (c) { return c.courseId === courseId; });
+    var course = courses.find(function (course) { return course.courseId === courseId; });
     return course ? course.courseName : null;
 }
 function onCourseClick(courseId) {
+    var _a;
     var userDetailsString = localStorage.getItem("user");
     var userDetails = userDetailsString ? JSON.parse(userDetailsString) : {};
     if (!userDetails.courses.includes(courseId)) {
         userDetails.courses.push(courseId);
-        var course = courses.find(function (c) { return c.courseId === courseId; });
+        var course = courses.find(function (course) { return course.courseId === courseId; });
         if (course) {
-            course.studentId = "123";
+            (_a = course.studentId) === null || _a === void 0 ? void 0 : _a.push("123");
         }
         localStorage.setItem("user", JSON.stringify(userDetails));
+        localStorage.setItem("courses", JSON.stringify(course));
         alert("You have successfully enrolled in " + (course === null || course === void 0 ? void 0 : course.courseName));
     }
     else {
