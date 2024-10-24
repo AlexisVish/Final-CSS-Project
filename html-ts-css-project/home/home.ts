@@ -31,7 +31,7 @@ nav.innerHTML = `  <div class="nav-bar">
 `;
 
 function OnAccountClick(){
-    window.location.href="..home/home.html";
+    window.location.href="../home/home.html";
 }
 function OnCoursesClick(){
     window.location.href="../courses/courses.html";
@@ -112,7 +112,7 @@ function onEditClick() {
       return;
     } else if (newName.value || newPhone.value) {
         const phoneRegex = /^\d{10}$/;
-        if(phoneRegex.test(newPhone.value){
+        if(phoneRegex.test(newPhone.value)){
       saveButton.style.display = "none";
       exitButton.style.display = "none";
       userPhone.innerHTML = `${newPhone.value}`;
@@ -126,7 +126,8 @@ function onEditClick() {
       userDetails.phone = newPhone.value.trim();
 
       localStorage.setItem("user", JSON.stringify(userDetails));
-        }else{alert("Invalid number!");
+}
+        else{alert("Invalid number!");
             return;
         }
     }

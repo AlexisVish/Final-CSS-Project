@@ -21,15 +21,20 @@ head.innerHTML = `  <div class="search-container open-sans">
 `;
 
 nav.innerHTML = `  <div class="nav-bar">
-        <button class="open-sans nav-bar__account btn" >My Account</button>
-        <button class="open-sans nav-bar__courses btn">My Courses</button>
+        <button class="open-sans nav-bar__account btn" onClick="OnAccountClick()">My Account</button>
+        <button class="open-sans nav-bar__courses btn" onClick="OnCoursesClick()">My Courses</button>
         <button class="open-sans nav-bar__zoom btn">My Zoom Meetings</button>
         <button class="open-sans nav-bar__forums btn">My Forums</button>
         <button class="open-sans nav-bar__lessons btn" onClick="onMyExitClick()">Exit</button>
         
     </div>
 `;
-
+function OnAccountClick(){
+  window.location.href="../home/home.html";
+}
+function OnCoursesClick(){
+  window.location.href="../courses/courses.html";
+}
 function onSearchClick() {
   const searchInput = document.getElementById(
     "search-bar"
@@ -44,9 +49,7 @@ function onMyExitClick() {
   window.location.href = "../login/login.html";
 }
 
-// const userDetailsString = localStorage.getItem("user");
-// const userDetails = userDetailsString  ? (JSON.parse(userDetailsString) as Student)
-//   : null;
+
 
 studentDetails.innerHTML = `
 
