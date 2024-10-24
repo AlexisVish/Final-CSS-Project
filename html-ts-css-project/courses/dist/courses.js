@@ -1,4 +1,4 @@
-var home = document.querySelector("#home");
+var home = document.querySelector("#courses");
 var head = document.createElement("div");
 var data = document.createElement("div");
 var nav = document.createElement("navbar");
@@ -11,13 +11,7 @@ studentDetails.classList.add("details-container");
 data.classList.add("body-container");
 home.classList.add("container");
 head.innerHTML = "  <div class=\"search-container open-sans\">\n        <input class=\"input\" type=\"text\" id=\"search-bar\" placeholder=\"Search...\" />\n        <button id=\"search-button\" class=\"open-sans sr\" onClick=\"onSearchClick()\">Look Up!</button>\n    </div>\n    <img class=\"img\" src=\"/html-ts-css-project/images/logo1.png\" alt=\"school logo1\">\n\n";
-nav.innerHTML = "  <div class=\"nav-bar\">\n        <button class=\"open-sans nav-bar__account btn\" onClick=\"OnAccountClick()\">My Account</button>\n        <button class=\"open-sans nav-bar__courses btn\" onClick=\"OnCoursesClick()\">My Courses</button>\n        <button class=\"open-sans nav-bar__zoom btn\">My Zoom Meetings</button>\n        <button class=\"open-sans nav-bar__forums btn\">My Forums</button>\n        <button class=\"open-sans nav-bar__lessons btn\" onClick=\"onMyExitClick()\">Exit</button>\n        \n    </div>\n";
-function OnAccountClick() {
-    window.location.href = "..home/home.html";
-}
-function OnCoursesClick() {
-    window.location.href = "../courses/courses.html";
-}
+nav.innerHTML = "  <div class=\"nav-bar\">\n        <button class=\"open-sans nav-bar__account btn\" >My Account</button>\n        <button class=\"open-sans nav-bar__courses btn\">My Courses</button>\n        <button class=\"open-sans nav-bar__zoom btn\">My Zoom Meetings</button>\n        <button class=\"open-sans nav-bar__forums btn\">My Forums</button>\n        <button class=\"open-sans nav-bar__lessons btn\" onClick=\"onMyExitClick()\">Exit</button>\n        \n    </div>\n";
 function onSearchClick() {
     var searchInput = document.getElementById("search-bar");
     var search = searchInput.value;
@@ -27,10 +21,11 @@ function onSearchClick() {
 function onMyExitClick() {
     window.location.href = "../login/login.html";
 }
+// const userDetailsString = localStorage.getItem("user");
+// const userDetails = userDetailsString  ? (JSON.parse(userDetailsString) as Student)
+//   : null;
 studentDetails.innerHTML = "\n\n    <img class=\"userPhoto\" src=\"/html-ts-css-project/images/profile.webp\" alt=\"null photo\">\n     <div class=\"data\">\n        <div class=\"details\">\n            <h1>User Name: <span id=\"userName\">Alexis</span></h1>\n            <h2>User Phone: <span id=\"userPhone\">0538999886</span></h2>\n            \n            <h2>User Id: <span id=\"userName\">123</span></h2>\n        </div>\n    <button id=\"B\" class=\"btn\" onClick=\"onEditClick()\">Edit</button></div>\n    \n";
 function onEditClick() {
-    var image = document.querySelector(".userPhoto");
-    image.innerHTML = "<input type=\"file\" id=\"imageUpload\" accept=\"image/*\" />";
     var userName = document.querySelector("#userName");
     userName.innerHTML = "<input type=\"text\" id=\"editName\" class=\"input\" placeholder=\"Enter a Name\" value=\"" + userName.innerText + "\">";
     var userPhone = document.querySelector("#userPhone");
@@ -58,7 +53,7 @@ function onEditClick() {
         exitButton.style.display = "none";
         editButton.style.display = "block";
         userName.innerHTML = "" + newName.value;
-        userPhone.innerHTML = "0538999886";
+        userPhone.innerHTML = "" + newPhone.value;
     });
     saveButton.addEventListener("click", function (event) {
         event.preventDefault();
@@ -67,23 +62,16 @@ function onEditClick() {
             return;
         }
         else if (newName.value || newPhone.value) {
-            var phoneRegex = /^\d{10}$/;
-            if (phoneRegex.test(newPhone.value)) {
-                saveButton.style.display = "none";
-                exitButton.style.display = "none";
-                userPhone.innerHTML = "" + newPhone.value;
-                userName.innerHTML = "" + newName.value;
-                editButton.style.display = "block";
-                var userDetailsString = localStorage.getItem("user");
-                var userDetails = userDetailsString ? JSON.parse(userDetailsString) : {};
-                userDetails.name = newName.value.trim();
-                userDetails.phone = newPhone.value.trim();
-                localStorage.setItem("user", JSON.stringify(userDetails));
-            }
-            else {
-                alert("Invalid number!");
-                return;
-            }
+            saveButton.style.display = "none";
+            exitButton.style.display = "none";
+            userPhone.innerHTML = "" + newPhone.value;
+            userName.innerHTML = "" + newName.value;
+            editButton.style.display = "block";
+            var userDetailsString = localStorage.getItem("user");
+            var userDetails = userDetailsString ? JSON.parse(userDetailsString) : {};
+            userDetails.name = newName.value.trim();
+            userDetails.phone = newPhone.value.trim();
+            localStorage.setItem("user", JSON.stringify(userDetails));
         }
     });
 }

@@ -1,4 +1,4 @@
-const home = document.querySelector("#home")! as HTMLDivElement;
+const home = document.querySelector("#courses")! as HTMLDivElement;
 const head = document.createElement("div")! as HTMLDivElement;
 const data = document.createElement("div")! as HTMLDivElement;
 const nav = document.createElement("navbar")! as HTMLDivElement;
@@ -21,8 +21,8 @@ head.innerHTML = `  <div class="search-container open-sans">
 `;
 
 nav.innerHTML = `  <div class="nav-bar">
-        <button class="open-sans nav-bar__account btn" onClick="OnAccountClick()">My Account</button>
-        <button class="open-sans nav-bar__courses btn" onClick="OnCoursesClick()">My Courses</button>
+        <button class="open-sans nav-bar__account btn" >My Account</button>
+        <button class="open-sans nav-bar__courses btn">My Courses</button>
         <button class="open-sans nav-bar__zoom btn">My Zoom Meetings</button>
         <button class="open-sans nav-bar__forums btn">My Forums</button>
         <button class="open-sans nav-bar__lessons btn" onClick="onMyExitClick()">Exit</button>
@@ -30,12 +30,6 @@ nav.innerHTML = `  <div class="nav-bar">
     </div>
 `;
 
-function OnAccountClick(){
-    window.location.href="..home/home.html";
-}
-function OnCoursesClick(){
-    window.location.href="../courses/courses.html";
-}
 function onSearchClick() {
   const searchInput = document.getElementById(
     "search-bar"
@@ -50,6 +44,9 @@ function onMyExitClick() {
   window.location.href = "../login/login.html";
 }
 
+// const userDetailsString = localStorage.getItem("user");
+// const userDetails = userDetailsString  ? (JSON.parse(userDetailsString) as Student)
+//   : null;
 
 studentDetails.innerHTML = `
 
@@ -66,12 +63,8 @@ studentDetails.innerHTML = `
 `;
 
 function onEditClick() {
-const image = document.querySelector(".userPhoto")! as HTMLImageElement;
-image.innerHTML = `<input type="file" id="imageUpload" accept="image/*" />`;
-
   const userName = document.querySelector("#userName") as HTMLElement; 
   userName.innerHTML = `<input type="text" id="editName" class="input" placeholder="Enter a Name" value="${userName.innerText}">`;
-  
   const userPhone = document.querySelector("#userPhone") as HTMLElement; 
   userPhone.innerHTML = `<input type="text" id="editPhone" class="input" placeholder="Enter a Phone number" value="${userPhone.innerText}">`;
 
@@ -103,7 +96,7 @@ image.innerHTML = `<input type="file" id="imageUpload" accept="image/*" />`;
     exitButton.style.display = "none";
     editButton.style.display = "block";
     userName.innerHTML = `${newName.value}`;
-    userPhone.innerHTML=`0538999886`;
+    userPhone.innerHTML=`${newPhone.value}`;
   });
 
   saveButton.addEventListener("click", (event) => {
@@ -113,8 +106,6 @@ image.innerHTML = `<input type="file" id="imageUpload" accept="image/*" />`;
       alert("No changes were made!");
       return;
     } else if (newName.value || newPhone.value) {
-        const phoneRegex = /^\d{10}$/;
-        if(phoneRegex.test(newPhone.value){
       saveButton.style.display = "none";
       exitButton.style.display = "none";
       userPhone.innerHTML = `${newPhone.value}`;
@@ -128,9 +119,7 @@ image.innerHTML = `<input type="file" id="imageUpload" accept="image/*" />`;
       userDetails.phone = newPhone.value.trim();
 
       localStorage.setItem("user", JSON.stringify(userDetails));
-        }else{alert("Invalid number!");
-            return;
-        }
+
     }
   });
 }
