@@ -35,10 +35,14 @@ a {
   color: #4d4d4d;
 }
 
-img {
+.img {
   margin-right: 5vw;
   width: 45px;
   border-radius: 30px;
+}
+
+.img:hover {
+  cursor: pointer;
 }
 
 .btn {
@@ -152,7 +156,7 @@ img {
 .details-container .details {
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: start;
   justify-content: end;
   padding: 5vw;
 }

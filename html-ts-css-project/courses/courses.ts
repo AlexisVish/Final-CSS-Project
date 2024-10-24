@@ -35,14 +35,20 @@ coursesList.classList.add("details-container");
 data.classList.add("body-container");
 home.classList.add("container");
 
-head.innerHTML = `
-  <div class="search-container open-sans">
-    <input class="input" type="text" id="search-bar" placeholder="Search..." />
-    <button id="search-button" class="open-sans sr" onClick="onSearchClick()">Look Up!</button>
-  </div>
-  <img class="img" src="/html-ts-css-project/images/logo1.png" alt="school logo1">
-`;
 
+function renderHeader(){
+  head.innerHTML = `  <div class="search-container open-sans">
+          <input class="input" type="text" id="search-bar" placeholder="Search..." />
+          <button id="search-button" class="open-sans sr" onClick="onSearchClick()">Look Up!</button>
+      </div>
+      <img class="img" src="/html-ts-css-project/images/logo1.png" alt="school logo1" onClick="onImageClick()">
+  
+  `;}
+  renderHeader();
+  function onImageClick(){
+  window.location.href="https://www.harvard.edu/"
+  }
+  
 nav.innerHTML = `
   <div class="nav-bar">
     <button class="open-sans nav-bar__account btn" onClick="OnAccountClick()">My Account</button>
@@ -79,6 +85,12 @@ function renderCourses() {
   const userDetails = userDetailsString ? JSON.parse(userDetailsString) : {};
 
   coursesList.innerHTML = `
+     <div class="details">
+      <img class="userPhoto" src="/html-ts-css-project/images/profile.webp" alt="null photo">
+      <h1>User Name: <span id="userName">${userDetails.name}</span></h1>
+      <h2>User Id: <span id="userId">123</span></h2>
+      <h2>My Courses: <span id="myCourses">${userDetails.courses.join(", ")}</span></h2>
+    </div>
     <ul>
       ${courses
         .map(
@@ -90,12 +102,7 @@ function renderCourses() {
         )
         .join("")}
     </ul>
-    <div class="details">
-      <img class="userPhoto" src="/html-ts-css-project/images/profile.webp" alt="null photo">
-      <h1>User Name: <span id="userName">${userDetails.name}</span></h1>
-      <h2>User Id: <span id="userId">123</span></h2>
-      <h2>My Courses: <span id="myCourses">${userDetails.courses.join(", ")}</span></h2>
-    </div>
+ 
   `;
 }
 

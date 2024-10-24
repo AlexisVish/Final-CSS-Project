@@ -23,10 +23,14 @@ head.innerHTML = `  <div class="search-container open-sans">
         <input class="input" type="text" id="search-bar" placeholder="Search..." />
         <button id="search-button" class="open-sans sr" onClick="onSearchClick()">Look Up!</button>
     </div>
-    <img class="img" src="/html-ts-css-project/images/logo1.png" alt="school logo1">
+    <img class="img" src="/html-ts-css-project/images/logo1.png" alt="school logo1" onClick="onImageClick()">
 
 `;}
 renderHeader();
+function onImageClick(){
+window.location.href="https://www.harvard.edu/"
+}
+
 
 function renderNavBar(){
 nav.innerHTML = `  <div class="nav-bar">
@@ -131,7 +135,7 @@ function onEditClick() {
       userPhone.innerHTML = `${newPhone.value}`;
       userName.innerHTML = `${newName.value}`;
       editButton.style.display = "block";
-      
+
       
       const userDetailsString = localStorage.getItem("user");
       const userDetails = userDetailsString ? JSON.parse(userDetailsString) : {};
