@@ -1,4 +1,5 @@
-export class Student {
+ class Student {
+  photo?:string;
   name: string;
   phone: number;
   email: string;
@@ -15,7 +16,7 @@ export class Student {
     localStorage.setItem("users", JSON.stringify(users));
   }
 }
-export const users: Student[] = [];
+ const users: Student[] = [];
 
 const container = document.getElementById(
   "registration-container"

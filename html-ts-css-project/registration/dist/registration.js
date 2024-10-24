@@ -1,6 +1,3 @@
-"use strict";
-exports.__esModule = true;
-exports.users = exports.Student = void 0;
 var Student = /** @class */ (function () {
     function Student(n, p, em, pass) {
         this.name = n;
@@ -14,8 +11,7 @@ var Student = /** @class */ (function () {
     };
     return Student;
 }());
-exports.Student = Student;
-exports.users = [];
+var users = [];
 var container = document.getElementById("registration-container");
 container.classList.add("box");
 container.classList.add("open-sans");
@@ -84,8 +80,8 @@ regButton.addEventListener("click", function (event) {
             }
             else {
                 var user = new Student(nameInput.value, phoneInput.valueAsNumber, mailInput.value, passInput.value);
-                exports.users.push(user);
-                user.pushUser(exports.users);
+                users.push(user);
+                user.pushUser(users);
                 nameInput.textContent = "";
                 phoneInput.textContent = "";
                 mailInput.textContent = "";

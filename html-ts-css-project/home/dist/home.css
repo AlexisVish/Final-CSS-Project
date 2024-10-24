@@ -43,7 +43,7 @@ img {
 
 .btn {
   background-color: #3377ff;
-  width: inherit;
+  width: 12vw;
   height: 10vh;
   color: white;
   display: flex;
@@ -140,8 +140,8 @@ img {
 
 .details-container {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   background-color: #e3edff;
   height: 75vh;
