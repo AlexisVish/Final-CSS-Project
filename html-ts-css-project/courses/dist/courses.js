@@ -13,7 +13,7 @@ var courses = [
     new Course("Geography"),
     new Course("Data Analyst"),
 ];
-localStorage.getItem("user");
+localStorage.setItem("user", JSON.stringify({ name: "Alexis", phone: "0538999886", courses: [] }));
 var home = document.querySelector("#courses");
 var head = document.createElement("div");
 var data = document.createElement("div");
@@ -61,18 +61,16 @@ function getCourseNameById(courseId) {
     return course ? course.courseName : null;
 }
 function onCourseClick(courseId) {
-    var _a, _b;
     var userDetailsString = localStorage.getItem("user");
     var userDetails = userDetailsString ? JSON.parse(userDetailsString) : {};
     if (!userDetails.courses.includes(courseId)) {
         userDetails.courses.push(courseId);
         var course = courses.find(function (course) { return course.courseId === courseId; });
         if (course) {
-            (_a = course.studentId) === null || _a === void 0 ? void 0 : _a.push("123");
-            (_b = course.studentId) === null || _b === void 0 ? void 0 : _b.push("236");
+            course.studentId = "123";
         }
         localStorage.setItem("user", JSON.stringify(userDetails));
-        localStorage.setItem("courses", JSON.stringify(course));
+        localStorage.setItem("course", JSON.stringify(courses));
         alert("You have successfully enrolled in " + (course === null || course === void 0 ? void 0 : course.courseName));
     }
     else {

@@ -1,3 +1,5 @@
+
+
 class Student {
   photo?: string;
   name: string;
@@ -13,7 +15,7 @@ class Student {
     this.password = pass;
     this.id = "123";
   }
-  pushUser(users: Student[]) {
+  pushUser(user: Student[]) {
     localStorage.setItem("users", JSON.stringify(users));
   }
 }

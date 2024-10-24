@@ -1,9 +1,9 @@
 class Course {
   courseName: string;
   courseId: string;
-  studentId?: string[];
+  studentId?: string;
 
-  constructor(n: string, studId?: string[]) {
+  constructor(n: string, studId?: string) {
     this.courseName = n;
     this.courseId = crypto.randomUUID();
     this.studentId = studId;
@@ -18,7 +18,7 @@ const courses: Course[] = [
   new Course("Data Analyst"),
 ];
 
-localStorage.getItem("user");
+localStorage.setItem("user", JSON.stringify({ name: "Alexis", phone: "0538999886", courses: [] }));
 
 const home = document.querySelector("#courses")! as HTMLDivElement;
 const head = document.createElement("div")! as HTMLDivElement;
@@ -119,13 +119,11 @@ function onCourseClick(courseId: string) {
 
     const course = courses.find(course => course.courseId === courseId);
     if (course) {
-      course.studentId?.push("123");
-      course.studentId?.push("236");
-
+      course.studentId = "123";
     }
 
     localStorage.setItem("user", JSON.stringify(userDetails));
-    localStorage.setItem("courses", JSON.stringify(course));
+    localStorage.setItem("course", JSON.stringify(courses));
 
     alert(`You have successfully enrolled in ${course?.courseName}`);
     

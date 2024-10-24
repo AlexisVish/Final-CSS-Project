@@ -6,7 +6,7 @@ var Student = /** @class */ (function () {
         this.password = pass;
         this.id = "123";
     }
-    Student.prototype.pushUser = function (users) {
+    Student.prototype.pushUser = function (user) {
         localStorage.setItem("users", JSON.stringify(users));
     };
     return Student;
