@@ -1,11 +1,12 @@
- class Student {
-  photo?:string;
+class Student {
+  photo?: string;
   name: string;
-  phone: number;
+  phone: string;
   email: string;
   password: string;
-  id:string;
-  constructor(n: string, p: number, em: string, pass: string) {
+  id: string;
+  courseID?: string[];
+  constructor(n: string, p: string, em: string, pass: string) {
     this.name = n;
     this.phone = p;
     this.email = em;
@@ -16,7 +17,7 @@
     localStorage.setItem("users", JSON.stringify(users));
   }
 }
- const users: Student[] = [];
+const users: Student[] = [];
 
 const container = document.getElementById(
   "registration-container"
@@ -83,6 +84,15 @@ container.append(reg, form, btns);
 regButton.addEventListener("click", (event) => {
   event.preventDefault();
   try {
+    if(nameInput.value === ""||
+      phoneInput.value === ""||
+      mailInput.value === ""||
+      passInput.value === ""||
+      doublepass.value === ""){
+        alert("Please fill all the areas");
+        return;
+
+      }
     if (passInput.value !== doublepass.value) {
       alert("The passwords didn't match!");
       passInput.value = "";
@@ -93,24 +103,26 @@ regButton.addEventListener("click", (event) => {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(mailInput.value)) {
         alert("Please enter a valid email address.");
-      } 
+        return;
+      }
       if (!phoneRegex.test(phoneInput.value)) {
         alert("Please enter a valid 10-digit phone number.");
+        return;
       } else {
         const user = new Student(
           nameInput.value,
-          phoneInput.valueAsNumber,
+          phoneInput.value,
           mailInput.value,
           passInput.value
         );
         users.push(user);
         user.pushUser(users);
-        nameInput.textContent="";
-        phoneInput.textContent="";
-        mailInput.textContent="";
-        passInput.textContent="";
-        doublepass.textContent="";
-        window.location.href="/html-ts-css-project/home/home.html";
+        nameInput.textContent = "";
+        phoneInput.textContent = "";
+        mailInput.textContent = "";
+        passInput.textContent = "";
+        doublepass.textContent = "";
+        window.location.href = "/html-ts-css-project/home/home.html";
       }
     }
   } catch (error) {

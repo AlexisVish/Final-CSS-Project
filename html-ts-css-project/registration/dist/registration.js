@@ -63,6 +63,14 @@ container.append(reg, form, btns);
 regButton.addEventListener("click", function (event) {
     event.preventDefault();
     try {
+        if (nameInput.value === "" ||
+            phoneInput.value === "" ||
+            mailInput.value === "" ||
+            passInput.value === "" ||
+            doublepass.value === "") {
+            alert("Please fill all the areas");
+            return;
+        }
         if (passInput.value !== doublepass.value) {
             alert("The passwords didn't match!");
             passInput.value = "";
@@ -74,12 +82,14 @@ regButton.addEventListener("click", function (event) {
             var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(mailInput.value)) {
                 alert("Please enter a valid email address.");
+                return;
             }
             if (!phoneRegex.test(phoneInput.value)) {
                 alert("Please enter a valid 10-digit phone number.");
+                return;
             }
             else {
-                var user = new Student(nameInput.value, phoneInput.valueAsNumber, mailInput.value, passInput.value);
+                var user = new Student(nameInput.value, phoneInput.value, mailInput.value, passInput.value);
                 users.push(user);
                 user.pushUser(users);
                 nameInput.textContent = "";

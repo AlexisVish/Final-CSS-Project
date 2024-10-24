@@ -19,6 +19,17 @@ head.innerHTML = `  <div class="search-container open-sans">
     <img class="img" src="/html-ts-css-project/images/logo1.png" alt="school logo1">
 
 `;
+
+nav.innerHTML = `  <div class="nav-bar">
+        <button class="open-sans nav-bar__account btn" >My Account</button>
+        <button class="open-sans nav-bar__courses btn">My Courses</button>
+        <button class="open-sans nav-bar__zoom btn">My Zoom Meetings</button>
+        <button class="open-sans nav-bar__forums btn">My Forums</button>
+        <button class="open-sans nav-bar__lessons btn" onClick="onMyAccountClick()">Exit</button>
+        
+    </div>
+`;
+
 function onSearchClick() {
   const searchInput = document.getElementById(
     "search-bar"
@@ -29,16 +40,15 @@ function onSearchClick() {
   searchInput.value = "";
 }
 
-nav.innerHTML = `  <div class="nav-bar">
-        <button class="open-sans nav-bar__account btn" onClick="onMyAccountClick()">My Account</button>
-        <button class="open-sans nav-bar__courses btn">My Courses</button>
-        <button class="open-sans nav-bar__zoom btn">My Zoom Meetings</button>
-        <button class="open-sans nav-bar__forums btn">My Forums</button>
-        <button class="open-sans nav-bar__lessons btn">My Lessons</button>
-        
-    </div>
-`;
-studentDetails.innerHTML = `
+function onMyAccountClick(){
+window.location.href="../login/login.html";
+}
+
+
+const userDetailsString = localStorage.getItem("user");
+const userDetails = userDetailsString  ? (JSON.parse(userDetailsString) as Student)
+  : null;
+  studentDetails.innerHTML = `
 
     <img src="/html-ts-css-project/images/profile.webp" alt="null photo">
      <div class="data">
@@ -50,23 +60,12 @@ studentDetails.innerHTML = `
     <button class="btn" onClick="onEditClick()">Edit</button></div>
     
 `;
-const userDetailsString = localStorage.getItem("user");
-const userDetails = userDetailsString
-  ? (JSON.parse(userDetailsString) as Student)
-  : null;
+
 function onEditClick() {
-  const userName = document.getElementById("userName")! as HTMLElement;
-  userName.innerHTML = `<input type="text" id="editName" value="${userName.innerText}">`;
+    const userName = document.querySelector(".user-name") as HTMLElement; // Use class selector
+    userName.innerHTML = `<input type="text" id="editName" placeholder="Enter a Name" value="${userName.innerText}">`;
 }
 
-//    function onMyAccountClick() {
-//        window.location.href = "/html-ts-css-project/registration/registration.html";
-//     }
 
-//     // const input = document.querySelector(".text")! as HTMLInputElement;
 
-//     // input.addEventListener("input", () => {
-//     //     setTimeout(() => {
-//     //         console.log(input.value);
-//     //     }, 2000);
-//     // });
+
