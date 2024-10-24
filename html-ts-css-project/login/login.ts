@@ -5,8 +5,8 @@ const loginContainer = document.getElementById(
 )! as HTMLDivElement;
 
 const greet = document.createElement("p")! as HTMLParagraphElement;
-const mailInput = document.createElement("input")! as HTMLInputElement;
-const passwordInput = document.createElement("input")! as HTMLInputElement;
+export const mailInput = document.createElement("input")! as HTMLInputElement;
+export const passwordInput = document.createElement("input")! as HTMLInputElement;
 const check = document.createElement("div")! as HTMLDivElement;
 const checkbox = document.createElement("input") as HTMLInputElement;
 const label = document.createElement("label")! as HTMLLabelElement;
