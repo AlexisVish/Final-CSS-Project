@@ -142,12 +142,19 @@ img {
 .details-container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
   background-color: #e3edff;
   height: 75vh;
   width: 75vw;
   border-radius: 15px;
+}
+.details-container .details {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: end;
+  padding: 5vw;
 }
 
 .nav-bar {
@@ -162,7 +169,14 @@ img {
 }
 
 .userPhoto {
-  width: 25vw;
+  width: 5vw;
   height: auto;
   border-radius: 55vw;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  margin: 1vw;
 }

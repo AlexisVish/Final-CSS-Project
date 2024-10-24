@@ -11,7 +11,7 @@ class Student {
     this.phone = p;
     this.email = em;
     this.password = pass;
-    this.id = crypto.randomUUID();
+    this.id = "123";
   }
   pushUser(users: Student[]) {
     localStorage.setItem("users", JSON.stringify(users));
