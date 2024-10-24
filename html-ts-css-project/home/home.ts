@@ -25,7 +25,7 @@ nav.innerHTML = `  <div class="nav-bar">
         <button class="open-sans nav-bar__courses btn">My Courses</button>
         <button class="open-sans nav-bar__zoom btn">My Zoom Meetings</button>
         <button class="open-sans nav-bar__forums btn">My Forums</button>
-        <button class="open-sans nav-bar__lessons btn" onClick="onMyAccountClick()">Exit</button>
+        <button class="open-sans nav-bar__lessons btn" onClick="onMyExitClick()">Exit</button>
         
     </div>
 `;
@@ -40,32 +40,73 @@ function onSearchClick() {
   searchInput.value = "";
 }
 
-function onMyAccountClick(){
-window.location.href="../login/login.html";
+function onMyExitClick() {
+  window.location.href = "../login/login.html";
 }
 
+// const userDetailsString = localStorage.getItem("user");
+// const userDetails = userDetailsString  ? (JSON.parse(userDetailsString) as Student)
+//   : null;
 
-const userDetailsString = localStorage.getItem("user");
-const userDetails = userDetailsString  ? (JSON.parse(userDetailsString) as Student)
-  : null;
-  studentDetails.innerHTML = `
+studentDetails.innerHTML = `
 
-    <img src="/html-ts-css-project/images/profile.webp" alt="null photo">
+    <img class="userPhoto" src="/html-ts-css-project/images/profile.webp" alt="null photo">
      <div class="data">
         <div class="details">
-            <h1>User Name: <span id="userName">${userDetails.name}</span></h1>
-            <h2>User Phone: <span id="userName">${userDetails.name}</span></h2>
-            <h2>User Id: <span id="userName">${userDetails.name}</span></h2>
+            <h1>User Name: <span id="userName">Alexis</span></h1>
+            <h2>User Phone: <span id="userPhone">0538999886</span></h2>
+            <h2>User Id: <span id="userName">123</span></h2>
         </div>
-    <button class="btn" onClick="onEditClick()">Edit</button></div>
+    <button id="B" class="btn" onClick="onEditClick()">Edit</button></div>
     
 `;
 
 function onEditClick() {
-    const userName = document.querySelector(".user-name") as HTMLElement; // Use class selector
-    userName.innerHTML = `<input type="text" id="editName" placeholder="Enter a Name" value="${userName.innerText}">`;
+  const userName = document.querySelector("#userName") as HTMLElement; 
+  userName.innerHTML = `<input type="text" id="editName" class="input" placeholder="Enter a Name" value="${userName.innerText}">`;
+  const userPhone = document.querySelector("#userPhone") as HTMLElement; 
+  userPhone.innerHTML = `<input type="text" id="editPhone" class="input" placeholder="Enter a Phone number" value="${userPhone.innerText}">`;
+
+  const editButton = document.querySelector("#B")! as HTMLButtonElement;
+  editButton.style.display = "none";
+
+  const saveButton = document.createElement("button")! as HTMLButtonElement;
+  saveButton.textContent = "Save";
+  saveButton.type = "button";
+  saveButton.classList.add("btn");
+
+  const details = document.querySelector(".details")! as HTMLDivElement;
+  details.append(saveButton);
+
+  const newName = document.querySelector("#editName")! as HTMLInputElement;
+  newName.value = "Alexis";
+  const newPhone = document.querySelector("#editPhone")! as HTMLInputElement;
+  newPhone.value = "0538999886";
+
+  const exitButton = document.createElement("button")! as HTMLButtonElement;
+  exitButton.textContent = "Exit";
+  exitButton.type = "button";
+  exitButton.classList.add("btn");
+  details.append(exitButton);
+
+  exitButton.addEventListener("click", () => {
+    saveButton.style.display = "none";
+    exitButton.style.display = "none";
+    editButton.style.display = "block";
+    userName.innerHTML = `${newName.value}`;
+    userPhone.innerHTML=`${newPhone.value}`;
+  });
+
+  saveButton.addEventListener("click", () => {
+    if (newName.value === "" && newPhone.value === "") {
+      alert("No changes were made!");
+      return;
+    } else if (newName.value || newPhone.value) {
+      saveButton.style.display = "none";
+      exitButton.style.display = "none";
+      userPhone.innerHTML = `${newPhone.value}`;
+      userName.innerHTML = `${newName.value}`;
+      editButton.style.display = "block";
+    }
+  });
 }
-
-
-
-

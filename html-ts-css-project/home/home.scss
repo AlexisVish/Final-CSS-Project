@@ -49,6 +49,7 @@ img {
   cursor: pointer;
   transition: background-color 0.3s ease;
   border-radius: 15px;
+  margin: 1vh;
 }
 
 .btn:hover {
@@ -137,6 +138,7 @@ background-color: #e3edff;
   width: 75vw;
   border-radius: 15px;
 }
+
 .nav-bar {
   display: flex;
   flex-direction: column;
@@ -146,4 +148,9 @@ background-color: #e3edff;
   border-radius: 15px;
   align-items: center;
   justify-content: space-around;
+}
+.userPhoto{
+  width: 25vw;
+  height: auto;
+  border-radius: 55vw;
 }
