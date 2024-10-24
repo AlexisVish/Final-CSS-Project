@@ -13,7 +13,6 @@ var courses = [
     new Course("Geography"),
     new Course("Data Analyst"),
 ];
-// Initial user data in local storage
 localStorage.setItem("user", JSON.stringify({ name: "Alexis", phone: "0538999886", courses: [] }));
 var home = document.querySelector("#courses");
 var head = document.createElement("div");
@@ -50,33 +49,28 @@ function onSearchClick() {
 function onMyExitClick() {
     window.location.href = "../login/login.html";
 }
-// Render courses
 function renderCourses() {
     var userDetailsString = localStorage.getItem("user");
     var userDetails = userDetailsString ? JSON.parse(userDetailsString) : {};
-    coursesList.innerHTML = "\n     <div class=\"details\">\n      <img class=\"userPhoto\" src=\"/html-ts-css-project/images/profile.webp\" alt=\"null photo\">\n      <h1>User Name: <span id=\"userName\">" + userDetails.name + "</span></h1>\n      <h2>User Id: <span id=\"userId\">123</span></h2>\n      <h2>My Courses: <span id=\"myCourses\">" + userDetails.courses.join(", ") + "</span></h2>\n    </div>\n    <ul>\n      " + courses
+    coursesList.innerHTML = "\n     <div class=\"details\">\n      <img class=\"userPhoto\" src=\"/html-ts-css-project/images/profile.webp\" alt=\"null photo\">\n      <h1>User Name: <span id=\"userName\">" + userDetails.name + "</span></h1>\n      <h2>User Id: <span id=\"userId\">123</span></h2>\n      <h2>My Courses: <span id=\"myCourses\">" + userDetails.courses.courseName.join(", ") + "</span></h2>\n    </div>\n    <ul>\n      " + courses
         .map(function (course) { return "\n        <button onClick=\"onCourseClick('" + course.courseId + "')\" class=\"btn\">\n          " + course.courseName + "\n        </button>\n      "; })
         .join("") + "\n    </ul>\n \n  ";
 }
-renderCourses(); // Initial call to render courses
+renderCourses();
 function onCourseClick(courseId) {
     var userDetailsString = localStorage.getItem("user");
     var userDetails = userDetailsString ? JSON.parse(userDetailsString) : {};
-    // Check if the user already has this course assigned
     if (!userDetails.courses.includes(courseId)) {
-        userDetails.courses.push(courseId); // Add courseId to user's courses
-        // Find the course and assign the studentId
+        userDetails.courses.push(courseId);
         var course = courses.find(function (c) { return c.courseId === courseId; });
         if (course) {
-            course.studentId = "123"; // Set the studentId (you might replace this with the actual user ID)
+            course.studentId = "123";
         }
-        // Update local storage with the modified user details
         localStorage.setItem("user", JSON.stringify(userDetails));
-        // Feedback for the user
         alert("You have successfully enrolled in " + (course === null || course === void 0 ? void 0 : course.courseName));
     }
     else {
         alert("You are already enrolled in this course.");
     }
-    renderCourses(); // Re-render courses to update the course list displayed
+    renderCourses();
 }

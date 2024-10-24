@@ -18,7 +18,6 @@ const courses: Course[] = [
   new Course("Data Analyst"),
 ];
 
-// Initial user data in local storage
 localStorage.setItem("user", JSON.stringify({ name: "Alexis", phone: "0538999886", courses: [] }));
 
 const home = document.querySelector("#courses")! as HTMLDivElement;
@@ -79,7 +78,6 @@ function onMyExitClick() {
   window.location.href = "../login/login.html";
 }
 
-// Render courses
 function renderCourses() {
   const userDetailsString = localStorage.getItem("user");
   const userDetails = userDetailsString ? JSON.parse(userDetailsString) : {};
@@ -89,7 +87,7 @@ function renderCourses() {
       <img class="userPhoto" src="/html-ts-css-project/images/profile.webp" alt="null photo">
       <h1>User Name: <span id="userName">${userDetails.name}</span></h1>
       <h2>User Id: <span id="userId">123</span></h2>
-      <h2>My Courses: <span id="myCourses">${userDetails.courses.join(", ")}</span></h2>
+      <h2>My Courses: <span id="myCourses">${userDetails.courses.courseName.join(", ")}</span></h2>
     </div>
     <ul>
       ${courses
@@ -106,30 +104,26 @@ function renderCourses() {
   `;
 }
 
-renderCourses(); // Initial call to render courses
+renderCourses();
 
 function onCourseClick(courseId: string) {
   const userDetailsString = localStorage.getItem("user");
   const userDetails = userDetailsString ? JSON.parse(userDetailsString) : {};
 
-  // Check if the user already has this course assigned
   if (!userDetails.courses.includes(courseId)) {
-    userDetails.courses.push(courseId); // Add courseId to user's courses
+    userDetails.courses.push(courseId); 
 
-    // Find the course and assign the studentId
     const course = courses.find(c => c.courseId === courseId);
     if (course) {
-      course.studentId = "123"; // Set the studentId (you might replace this with the actual user ID)
+      course.studentId = "123";
     }
 
-    // Update local storage with the modified user details
     localStorage.setItem("user", JSON.stringify(userDetails));
 
-    // Feedback for the user
     alert(`You have successfully enrolled in ${course?.courseName}`);
   } else {
     alert("You are already enrolled in this course.");
   }
 
-  renderCourses(); // Re-render courses to update the course list displayed
+  renderCourses(); 
 }
