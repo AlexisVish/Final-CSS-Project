@@ -68,7 +68,6 @@ function onCourseClick(courseId) {
         var course = courses.find(function (c) { return c.courseId === courseId; });
         if (course) {
             course.studentId = "123";
-            var courseN = course.courseName;
         }
         localStorage.setItem("user", JSON.stringify(userDetails));
         alert("You have successfully enrolled in " + (course === null || course === void 0 ? void 0 : course.courseName));

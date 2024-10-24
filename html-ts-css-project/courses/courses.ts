@@ -120,7 +120,6 @@ function onCourseClick(courseId: string) {
     const course = courses.find(c => c.courseId === courseId);
     if (course) {
       course.studentId = "123";
-      const courseN = course.courseName;
     }
 
     localStorage.setItem("user", JSON.stringify(userDetails));
