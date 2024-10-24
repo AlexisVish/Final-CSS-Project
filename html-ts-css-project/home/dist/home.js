@@ -29,8 +29,6 @@ function onMyExitClick() {
 }
 studentDetails.innerHTML = "\n\n    <img class=\"userPhoto\" src=\"/html-ts-css-project/images/profile.webp\" alt=\"null photo\">\n     <div class=\"data\">\n        <div class=\"details\">\n            <h1>User Name: <span id=\"userName\">Alexis</span></h1>\n            <h2>User Phone: <span id=\"userPhone\">0538999886</span></h2>\n            \n            <h2>User Id: <span id=\"userName\">123</span></h2>\n        </div>\n    <button id=\"B\" class=\"btn\" onClick=\"onEditClick()\">Edit</button></div>\n    \n";
 function onEditClick() {
-    var image = document.querySelector(".userPhoto");
-    image.innerHTML = "<input type=\"file\" id=\"imageUpload\" accept=\"image/*\" />";
     var userName = document.querySelector("#userName");
     userName.innerHTML = "<input type=\"text\" id=\"editName\" class=\"input\" placeholder=\"Enter a Name\" value=\"" + userName.innerText + "\">";
     var userPhone = document.querySelector("#userPhone");

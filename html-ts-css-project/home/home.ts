@@ -66,8 +66,6 @@ studentDetails.innerHTML = `
 `;
 
 function onEditClick() {
-const image = document.querySelector(".userPhoto")! as HTMLImageElement;
-image.innerHTML = `<input type="file" id="imageUpload" accept="image/*" />`;
 
   const userName = document.querySelector("#userName") as HTMLElement; 
   userName.innerHTML = `<input type="text" id="editName" class="input" placeholder="Enter a Name" value="${userName.innerText}">`;
