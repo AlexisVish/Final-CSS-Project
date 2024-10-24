@@ -87,7 +87,7 @@ function renderCourses() {
       <img class="userPhoto" src="/html-ts-css-project/images/profile.webp" alt="null photo">
       <h1>User Name: <span id="userName">${userDetails.name}</span></h1>
       <h2>User Id: <span id="userId">123</span></h2>
-      <h2>My Courses: <span id="myCourses">${userDetails.courses.courseName.join(", ")}</span></h2>
+      <h2>My Courses: <span id="myCourses">${userDetails.courses.map(courseId => getCourseNameById(courseId)).join(", ") || "None"}</span></h2>
     </div>
     <ul>
       ${courses
@@ -96,15 +96,19 @@ function renderCourses() {
         <button onClick="onCourseClick('${course.courseId}')" class="btn">
           ${course.courseName}
         </button>
-      `
-        )
-        .join("")}
+      `).join("")}
     </ul>
  
   `;
 }
 
 renderCourses();
+
+
+function getCourseNameById(courseId) {
+  const course = courses.find(c => c.courseId === courseId);
+  return course ? course.courseName : null;
+}
 
 function onCourseClick(courseId: string) {
   const userDetailsString = localStorage.getItem("user");
@@ -116,14 +120,15 @@ function onCourseClick(courseId: string) {
     const course = courses.find(c => c.courseId === courseId);
     if (course) {
       course.studentId = "123";
+      const courseN = course.courseName;
     }
 
     localStorage.setItem("user", JSON.stringify(userDetails));
 
     alert(`You have successfully enrolled in ${course?.courseName}`);
+    
   } else {
     alert("You are already enrolled in this course.");
   }
-
   renderCourses(); 
 }

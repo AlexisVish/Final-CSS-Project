@@ -52,11 +52,14 @@ function onMyExitClick() {
 function renderCourses() {
     var userDetailsString = localStorage.getItem("user");
     var userDetails = userDetailsString ? JSON.parse(userDetailsString) : {};
-    coursesList.innerHTML = "\n     <div class=\"details\">\n      <img class=\"userPhoto\" src=\"/html-ts-css-project/images/profile.webp\" alt=\"null photo\">\n      <h1>User Name: <span id=\"userName\">" + userDetails.name + "</span></h1>\n      <h2>User Id: <span id=\"userId\">123</span></h2>\n      <h2>My Courses: <span id=\"myCourses\">" + userDetails.courses.courseName.join(", ") + "</span></h2>\n    </div>\n    <ul>\n      " + courses
-        .map(function (course) { return "\n        <button onClick=\"onCourseClick('" + course.courseId + "')\" class=\"btn\">\n          " + course.courseName + "\n        </button>\n      "; })
-        .join("") + "\n    </ul>\n \n  ";
+    coursesList.innerHTML = "\n     <div class=\"details\">\n      <img class=\"userPhoto\" src=\"/html-ts-css-project/images/profile.webp\" alt=\"null photo\">\n      <h1>User Name: <span id=\"userName\">" + userDetails.name + "</span></h1>\n      <h2>User Id: <span id=\"userId\">123</span></h2>\n      <h2>My Courses: <span id=\"myCourses\">" + (userDetails.courses.map(function (courseId) { return getCourseNameById(courseId); }).join(", ") || "None") + "</span></h2>\n    </div>\n    <ul>\n      " + courses
+        .map(function (course) { return "\n        <button onClick=\"onCourseClick('" + course.courseId + "')\" class=\"btn\">\n          " + course.courseName + "\n        </button>\n      "; }).join("") + "\n    </ul>\n \n  ";
 }
 renderCourses();
+function getCourseNameById(courseId) {
+    var course = courses.find(function (c) { return c.courseId === courseId; });
+    return course ? course.courseName : null;
+}
 function onCourseClick(courseId) {
     var userDetailsString = localStorage.getItem("user");
     var userDetails = userDetailsString ? JSON.parse(userDetailsString) : {};
@@ -65,6 +68,7 @@ function onCourseClick(courseId) {
         var course = courses.find(function (c) { return c.courseId === courseId; });
         if (course) {
             course.studentId = "123";
+            var courseN = course.courseName;
         }
         localStorage.setItem("user", JSON.stringify(userDetails));
         alert("You have successfully enrolled in " + (course === null || course === void 0 ? void 0 : course.courseName));
