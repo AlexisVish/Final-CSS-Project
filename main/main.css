@@ -1,0 +1,76 @@
+body {
+  background-color: #FBFBFD;
+  color: #4D4D4D;
+}
+
+.open-sans {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  font-size: 18px;
+}
+
+.h1 {
+  font-size: 22px;
+}
+
+.smaller {
+  font-size: 16px;
+}
+
+.box {
+  position: relative;
+  display: grid;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  background-color: #e3edff;
+  height: 80vh;
+  width: 80vw;
+  border-radius: 3vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-bottom: 10vh;
+  margin-top: 10vh;
+}
+
+.btn {
+  margin-top: 1rem;
+  background-color: #3377ff;
+  width: 30vh;
+  height: 6.5vh;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 15px;
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.btn:hover {
+  background-color: #99bbff;
+}
+
+.btn:active {
+  background-color: #99bbff;
+}
+
+.input {
+  margin-bottom: 1rem;
+  padding: 10px;
+  border: 1px solid #4d4d4d;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 35vh;
+  height: 6.5vh;
+  box-sizing: border-box;
+}/*# sourceMappingURL=main.css.map */
